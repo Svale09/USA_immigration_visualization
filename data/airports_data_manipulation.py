@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 df = pd.read_csv(
-    '/Users/ivansvalina/Documents/Faks/Vizualizacija podataka/KV projekt/project/data/airports_dataset.csv',
+    '/Users/ivansvalina/Documents/Faks/Vizualizacija podataka/KV projekt/project/data/airports_',
     delimiter=';')
 
 df.info()
