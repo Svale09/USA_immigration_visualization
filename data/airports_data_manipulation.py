@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 df = pd.read_csv(
-    '/Users/ivansvalina/Documents/Faks/Vizualizacija podataka/KV projekt/project/data/airports_dataset.csv',
+    '/Users/ivansvalina/Documents/Faks/Vizualizacija podataka/KV projekt/project/data/airports_',
     delimiter=';')
 
 df.info()
@@ -18,10 +18,6 @@ df.info()
 
 print(df.head(5))
 
-num_unique_values = df['usg_apt'].nunique()
-
-print("Number of unique values in the 'usg_apt' column:", num_unique_values)
-
-#df.to_json('airports_finalJSON.json', orient='records')
+df.to_json('airports_finalJSON.json', orient='records')
 
 
