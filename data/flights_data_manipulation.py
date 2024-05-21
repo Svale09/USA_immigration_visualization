@@ -6,12 +6,15 @@ import numpy as np
 import calendar
 
 df = pd.read_csv(
-    '/Users/ivansvalina/Documents/Faks/Vizualizacija podataka/KV projekt/project/data/inbound-flight.csv'
+    'data/flights_data/inbound-flight.csv'
 )
 
 df.info()
 
 df = df.drop(df.columns[[3,5,6,7,8,9,10,11,12,13,14]], axis = 1)
+
+num_unique_values = df['usg_apt'].nunique()
+print("Number of unique values in the 'usg_apt' column:", num_unique_values)
 
 aggregated_data = df.groupby(['Year', 'Month', 'usg_apt']).agg(
     flights_count = ('data_dte', 'size'),

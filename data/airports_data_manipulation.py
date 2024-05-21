@@ -18,6 +18,10 @@ df.info()
 
 print(df.head(5))
 
-df.to_json('airports_finalJSON.json', orient='records')
+num_unique_values = df['usg_apt'].nunique()
+
+print("Number of unique values in the 'usg_apt' column:", num_unique_values)
+
+#df.to_json('airports_finalJSON.json', orient='records')
 
 
