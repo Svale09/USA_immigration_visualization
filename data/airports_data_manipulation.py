@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 df = pd.read_csv(
-    '/Users/ivansvalina/Documents/Faks/Vizualizacija podataka/KV projekt/project/data/airports_',
+    '/Users/ivansvalina/Documents/Faks/Vizualizacija podataka/KV projekt/project/data/airports_dataset.csv',
     delimiter=';')
 
 df.info()
@@ -17,5 +17,7 @@ df.drop_duplicates(inplace=True)
 df.info()
 
 print(df.head(5))
+
+df.to_json('airports_finalJSON.json', orient='records')
 
 
