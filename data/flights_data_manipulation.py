@@ -20,8 +20,8 @@ aggregated_data = df.groupby(['Year', 'Month', 'usg_apt']).agg(
 
 aggregated_data['Month'] = aggregated_data['Month'].apply(lambda x: calendar.month_name[x])
 
-aggregated_data.to_csv('incoming_flights_final.csv', index=False)
-aggregated_data.to_json('incoming_flights_finalJSON.json', orient='records')
+#aggregated_data.to_csv('incoming_flights_final.csv', index=False)
+#aggregated_data.to_json('incoming_flights_finalJSON.json', orient='records')
 
 
 
