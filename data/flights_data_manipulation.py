@@ -23,11 +23,13 @@ aggregated_data = df.groupby(['Year', 'Month', 'usg_apt']).agg(
 
 aggregated_data['Month'] = aggregated_data['Month'].apply(lambda x: calendar.month_name[x])
 
+sorted_ad = aggregated_data.sort_values(by=['usg_apt', 'Year', 'Month'])
+
 #aggregated_data.to_csv('incoming_flights_final.csv', index=False)
 #aggregated_data.to_json('incoming_flights_finalJSON.json', orient='records')
 
 
 
-print(aggregated_data.head(20))
-print(aggregated_data.sort_values(by='usg_apt').head(20))
-aggregated_data.info()
+
+print(sorted_ad.head(50))
+sorted_ad.info()
