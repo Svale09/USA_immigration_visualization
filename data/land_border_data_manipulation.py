@@ -12,6 +12,10 @@ df.drop_duplicates(inplace=True)
 
 df = df.drop(columns=[df.columns[7], df.columns[8]])
 
+df['Point'] = df['Point'].str.split()
+# Add a comma between each value
+df['Point'] = df['Point'].apply(lambda x: ','.join(x))
+
 passengersDF = df[df['Measure'].str.contains('passengers|pedestrians', case=False, na=False)].copy()
 
 passengersDF[['Month', 'Year']] = passengersDF['Date'].str.split(expand=True)
