@@ -22,9 +22,15 @@ sorted_md = merged_data.sort_values(by=['usg_apt', 'Year', 'Month_num'])
 
 sorted_md = sorted_md.drop(columns=['Month_num'])
 
+new_order = ['usg_apt', 'Year', 'Month', 'total_passengers', 'flights_count', 'Airport Name', 'City Name', 'coordinates']
+
+sorted_md = sorted_md[new_order]
+
 # Save the merged dataset to a new CSV file
-merged_data.to_csv('data/flights_data/FINAL_flights.csv', index=False)
-merged_data.to_json('data/flights_data/FINAL_flightsJSON.json', orient='records')
+sorted_md.to_csv('data/flights_data/FINAL_flights.csv', index=False)
+sorted_md.to_json('data/flights_data/FINAL_flightsJSON.json', orient='records')
+
+
 
 
 print(sorted_md.head(20))
