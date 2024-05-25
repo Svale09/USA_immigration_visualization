@@ -1,20 +1,22 @@
 var width = 900;
 var height = 500;
 
-var projection = d3.geo.albersUsa()
+var projection = d3.geo
+  .albersUsa()
   .scale(1000)
   .translate([width / 2, height / 2]);
 
 var path = d3.geo.path().projection(projection);
 
-var svg = d3.select("body")
+var svg = d3
+  .select("body")
   .append("svg")
   .attr("width", width)
   .attr("height", height);
 
 var g = svg.append("g");
 
-d3.json("us_features.json", function(error, us) {
+d3.json("us_features.json", function (error, us) {
   if (error) throw error;
 
   g.append("g")
@@ -29,9 +31,10 @@ d3.json("us_features.json", function(error, us) {
     .style("stroke-width", "1px");
 });
 
-var zoom = d3.behavior.zoom()
+var zoom = d3.behavior
+  .zoom()
   .scaleExtent([1, 10])
-  .on("zoom", function() {
+  .on("zoom", function () {
     var translate = d3.event.translate;
     var scale = d3.event.scale;
 
@@ -42,13 +45,13 @@ var zoom = d3.behavior.zoom()
 
     translate = [
       Math.max(Math.min(translate[0], rbound), lbound),
-      Math.max(Math.min(translate[1], bbound), tbound)
+      Math.max(Math.min(translate[1], bbound), tbound),
     ];
 
     g.attr("transform", "translate(" + translate + ")scale(" + scale + ")");
   });
 
-svg.call(zoom).on("wheel.zoom", function() {
+svg.call(zoom).on("wheel.zoom", function () {
   d3.event.preventDefault();
 
   var mouse = d3.mouse(this);
@@ -63,7 +66,7 @@ svg.call(zoom).on("wheel.zoom", function() {
 
   var translate = [
     mouse[0] - (mouse[0] - zoom.translate()[0]) * (newScale / scale),
-    mouse[1] - (mouse[1] - zoom.translate()[1]) * (newScale / scale)
+    mouse[1] - (mouse[1] - zoom.translate()[1]) * (newScale / scale),
   ];
 
   var tbound = -height * newScale + height;
@@ -73,7 +76,7 @@ svg.call(zoom).on("wheel.zoom", function() {
 
   translate = [
     Math.max(Math.min(translate[0], rbound), lbound),
-    Math.max(Math.min(translate[1], bbound), tbound)
+    Math.max(Math.min(translate[1], bbound), tbound),
   ];
 
   zoom.scale(newScale).translate(translate);
@@ -82,38 +85,34 @@ svg.call(zoom).on("wheel.zoom", function() {
 
 // AIRPORTS visualization
 
-d3.json("FINAL_flightsJSON.json", function(error, airportData) {
+d3.json("uniqe_airports.json", function (error, airportData) {
   if (error) throw error;
 
+  // Log the data to see if it's correctly loaded
+  console.log("Loaded airport data:", airportData);
+
+  // Define the projection for airport data
+  var airportProjection = d3.geo
+    .albersUsa()
+    .scale(1000)
+    .translate([width / 2, height / 2]);
+
   // Draw circles representing airport locations
-  svg.selectAll("circle")
+  svg
+    .selectAll("circle")
     .data(airportData)
     .enter()
     .append("circle")
-    .attr("cx", function(d) {
-      var longitude = parseFloat(d.Longitude);
-      var latitude = parseFloat(d.Latitude);
-      console.log("Longitude:", longitude, "Latitude:", latitude);
-      
-      if (isNaN(longitude) || isNaN(latitude)) {
-        console.error("Invalid coordinate:", d);
-        return 0;  // Return a default value to avoid errors
-      }
-
-      return projection([longitude, latitude])[0];
+    .attr("cx", function (d) {
+      var coords = airportProjection([+d.Longitude, +d.Latitude]);
+      console.log("Projected coordinates for", d, ":", coords);
+      return coords[0]; // Pass longitude and latitude as an array to the projection function
     })
-    .attr("cy", function(d) {
-      var longitude = parseFloat(d.Longitude);
-      var latitude = parseFloat(d.Latitude);
-      
-      if (isNaN(longitude) || isNaN(latitude)) {
-        console.error("Invalid coordinate:", d);
-        return 0;  // Return a default value to avoid errors
-      }
-
-      return projection([longitude, latitude])[1];
+    .attr("cy", function (d) {
+      var coords = airportProjection([+d.Longitude, +d.Latitude]);
+      return coords[1]; // Pass longitude and latitude as an array to the projection function
     })
-    .attr("r", 20)
+    .attr("r", 5)
     .style("fill", "red")
     .style("opacity", 0.75);
 });
