@@ -26,13 +26,12 @@ new_order = ['usg_apt', 'Year', 'Month', 'total_passengers', 'flights_count', 'A
 
 sorted_md = sorted_md[new_order]
 
+sorted_md_cleaned = sorted_md.dropna(how='any')
+
 # Save the merged dataset to a new CSV file
-sorted_md.to_csv('data/flights_data/FINAL_flights.csv', index=False)
-sorted_md.to_json('data/flights_data/FINAL_flightsJSON.json', orient='records')
+sorted_md_cleaned.to_csv('data/flights_data/FINAL_flights.csv', index=False)
+sorted_md_cleaned.to_json('data/flights_data/FINAL_flightsJSON.json', orient='records')
 
-
-
-
-print(sorted_md.head(20))
-print(sorted_md[(sorted_md['usg_apt']=='ABE') & (sorted_md['Year']<2000)])
+print(sorted_md_cleaned.head(20))
+print(sorted_md_cleaned[(sorted_md['usg_apt']=='ABE') & (sorted_md['Year']<2000)])
 sorted_md.info()
