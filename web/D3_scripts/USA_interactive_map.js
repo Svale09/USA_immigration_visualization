@@ -101,12 +101,12 @@ d3.json("FINAL_flightsJSON.json", function (error, airportData) {
     .enter()
     .append("circle")
     .attr("cx", function (d) {
-      console.log("Longitude:", +d.Longitude);
-      return airportProjection([+d.Longitude, +d.Latitude])[0];
+      console.log("Longitude:", d.Longitude);
+      return airportProjection(d.Longitude, d.Latitude);
     })
     .attr("cy", function (d) {
-      console.log("Latitude:", +d.Latitude);
-      return airportProjection([+d.Longitude, +d.Latitude])[1];
+      console.log("Latitude:", d.Latitude);
+      return airportProjection(d.Latitude, d.Latitude);
     })
     .attr("r", 5)
     .style("fill", "red")
