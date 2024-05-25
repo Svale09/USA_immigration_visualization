@@ -28,10 +28,23 @@ sorted_md = sorted_md[new_order]
 
 sorted_md_cleaned = sorted_md.dropna(how='any')
 
-# Save the merged dataset to a new CSV file
-sorted_md_cleaned.to_csv('data/flights_data/FINAL_flights.csv', index=False)
-sorted_md_cleaned.to_json('data/flights_data/FINAL_flightsJSON.json', orient='records')
+sorted_md_cleaned[['Latitude', 'Longitude']] = sorted_md_cleaned['coordinates'].str.split(',', expand=True)
+
+sorted_md_cleaned['Latitude'] = pd.to_numeric(sorted_md_cleaned['Latitude'])
+sorted_md_cleaned['Longitude'] = pd.to_numeric(sorted_md_cleaned['Longitude'])
 
 print(sorted_md_cleaned.head(20))
 print(sorted_md_cleaned[(sorted_md['usg_apt']=='ABE') & (sorted_md['Year']<2000)])
 sorted_md.info()
+
+# Save the merged dataset to a new CSV file
+#sorted_md_cleaned.to_csv('data/flights_data/FINAL_flights.csv', index=False)
+
+sorted_md_cleaned.loc[:, 'Longitude'] = sorted_md_cleaned['Longitude'].astype(str)
+sorted_md_cleaned.loc[:, 'Latitude'] = sorted_md_cleaned['Latitude'].astype(str)
+
+sorted_md_cleaned.loc[:, 'Longitude'] = sorted_md_cleaned['Longitude'].str.rstrip('.')
+sorted_md_cleaned.loc[:, 'Latitude'] = sorted_md_cleaned['Latitude'].str.rstrip('.')
+
+
+sorted_md_cleaned.to_json('web/FINAL_flightsJSON.json', orient='records')

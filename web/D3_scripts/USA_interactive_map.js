@@ -82,3 +82,33 @@ svg.call(zoom).on("wheel.zoom", function () {
   zoom.scale(newScale).translate(translate);
   g.attr("transform", "translate(" + translate + ")scale(" + newScale + ")");
 });
+
+// AIRPORTS visualization
+
+d3.json("FINAL_flightsJSON.json", function (error, airportData) {
+  if (error) throw error;
+
+  // Define the projection for airport data
+  var airportProjection = d3.geo
+    .albersUsa()
+    .scale(1000)
+    .translate([width / 2, height / 2]);
+
+  // Draw circles representing airport locations
+  svg
+    .selectAll("circle")
+    .data(airportData)
+    .enter()
+    .append("circle")
+    .attr("cx", function (d) {
+      console.log("Longitude:", +d.Longitude);
+      return airportProjection([+d.Longitude, +d.Latitude])[0];
+    })
+    .attr("cy", function (d) {
+      console.log("Latitude:", +d.Latitude);
+      return airportProjection([+d.Longitude, +d.Latitude])[1];
+    })
+    .attr("r", 5)
+    .style("fill", "red")
+    .style("opacity", 0.75);
+});
