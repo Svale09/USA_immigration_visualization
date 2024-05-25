@@ -4,20 +4,33 @@ sys.path.append('/Users/ivansvalina/Documents/Faks/Vizualizacija podataka/KV pro
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv(
+airports_data = pd.read_csv(
     'data/airports_data/airports_dataset.csv',
     delimiter=';')
 
-df.info()
+airports_data.info()
 
-df = df.drop(df.columns[[3,4,5,6,7,8,9]], axis = 1)
+airports_data = airports_data.drop(airports_data.columns[[3,4,5,6,7,8,9]], axis = 1)
 
-df.drop_duplicates(inplace=True)
+airports_data[['Latitude', 'Longitude']] = airports_data['coordinates'].str.split(',', expand=True)
 
-df.info()
+# Remove whitespace and convert to float
+airports_data['Latitude'] = airports_data['Latitude'].str.strip().astype(float)
+airports_data['Longitude'] = airports_data['Longitude'].str.strip().astype(float)
 
-print(df.head(5))
+airports_data.drop(columns=['coordinates'], inplace=True)
 
-#df.to_json('airports_finalJSON.json', orient='records')
+airports_data.dropna(inplace=True)
+
+
+flights_data = pd.read_json('web/FINAL_flightsJSON.json')
+unique_airports = flights_data['usg_apt'].unique()
+
+filtered_airports_data = airports_data[airports_data['Airport Code'].isin(unique_airports)]
+
+#filtered_airports_data.to_json('data/airports_data/uniqe_airports.json', orient='records')
+
+filtered_airports_data.info()
+print(filtered_airports_data.tail(10))
 
 
