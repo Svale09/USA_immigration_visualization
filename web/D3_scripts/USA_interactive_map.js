@@ -1,3 +1,5 @@
+import { updateGraph } from './traffic.js';
+
 var width = 900;
 var height = 500;
 
@@ -12,7 +14,7 @@ var projection = d3.geo
 var path = d3.geo.path().projection(projection);
 
 var svg = d3
-  .select("body")
+  .select("#map")
   .append("svg")
   .attr("width", width)
   .attr("height", height);
@@ -73,6 +75,8 @@ d3.json("us_features.json", function (error, us) {
       .on("click", function (d) {
         console.log("Airport coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Airport Code:", d["Airport Code"]);
+        var airportCode = d["Airport Code"];
+        updateGraph(airportCode)
       });
   });
 
