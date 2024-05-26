@@ -52,7 +52,11 @@ d3.json("us_features.json", function (error, us) {
       })
       .attr("r", 5)
       .style("fill", "red")
-      .style("opacity", 0.75);
+      .style("opacity", 0.75)
+      .on("click", function(d){
+        console.log("Airport coordinates: ", [+d.Latitude, +d.Longitude]);
+        console.log("Airport Code:", d["Airport Code"]);
+      });
   });
 
   // Group for border crossings
@@ -77,7 +81,11 @@ d3.json("us_features.json", function (error, us) {
       })
       .attr("r", 5)
       .style("fill", "green")
-      .style("opacity", 0.75);
+      .style("opacity", 0.75)
+      .on("click", function(d){
+        console.log("Crossing coordinates: ", [+d.Latitude, +d.Longitude]);
+        console.log("Port code:", d.PortCode);
+      });
   });
 
   // Zoom behavior
