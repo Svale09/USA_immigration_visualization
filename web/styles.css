@@ -1,8 +1,13 @@
-#main {
+#main{
+    display: flex;
+    flex-direction: column;
+}
+
+#map_graph {
     display: flex;
     flex-direction: row;
     width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    height: 70vh; /* Full viewport height */
 }
 
 #map, #graph1 {
@@ -18,4 +23,11 @@
     position: absolute;
     top: 0;
     left: 0;
+}
+
+#full_graphs{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-around;
 }

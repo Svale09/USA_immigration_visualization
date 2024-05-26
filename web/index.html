@@ -14,11 +14,19 @@
   </head>
   <body>
     <div id="main">
-      <div id="map"></div>
-      <div id="graph1"></div>
+      <div id="map_graph">
+        <div id="map"></div>
+        <div id="graph1"></div>
+      </div>
+      <div id="full_graphs">
+        <div id="airports_full"></div>
+        <div id="crossings_full"></div>
+      </div>
     </div>
 
     <script type="module" src="D3_scripts/USA_interactive_map.js"></script>
     <script type="module" src="D3_scripts/traffic.js"></script>
+    <script src="D3_scripts/full_airports_graph.js"></script>
+    <script src="D3_scripts/full_crosings_graph.js"></script>
   </body>
 </html>

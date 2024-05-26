@@ -41,7 +41,7 @@ d3.json("us_features.json", function (error, us) {
   var airportGroup = g.append("g").attr("class", "airports");
 
   // Load airport data
-  d3.json("uniqe_airports.json", function (error, airportData) {
+  d3.json("cleaned_airports.json", function (error, airportData) {
     if (error) throw error;
 
     // Draw circles representing airport locations
