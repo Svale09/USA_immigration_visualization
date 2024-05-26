@@ -2,7 +2,7 @@ var width = 900;
 var height = 500;
 
 var circleRadius_regular = 4;
-var circleRadius_hover = 8;
+var circleRadius_hover = 10;
 
 var projection = d3.geo
   .albersUsa()
@@ -62,8 +62,8 @@ d3.json("us_features.json", function (error, us) {
       // Add event listeners for hover events
       .on("mouseover", function () {
         d3.select(this)
-          .attr("r",circleRadius_hover) // Bigger radius on hover
-          .style("opacity", 1); // More visible on hover
+          .attr("r", circleRadius_hover) // Bigger radius on hover
+          .style("opacity", 0.8); // More visible on hover
       })
       .on("mouseout", function () {
         d3.select(this)
@@ -104,7 +104,7 @@ d3.json("us_features.json", function (error, us) {
       .on("mouseover", function () {
         d3.select(this)
           .attr("r", circleRadius_hover) // Bigger radius on hover
-          .style("opacity", 1); // More visible on hover
+          .style("opacity", 0.8); // More visible on hover
       })
       .on("mouseout", function () {
         d3.select(this)
@@ -152,16 +152,16 @@ d3.json("us_features.json", function (error, us) {
 
       // Adjust border crossing positions based on the new translate and scale
       crossingGroup
-      .selectAll("circle")
-      .attr("cx", function (d) {
-        var coords = projection([+d.Longitude, +d.Latitude]);
-        return coords[0];
-      })
-      .attr("cy", function (d) {
-        var coords = projection([+d.Longitude, +d.Latitude]);
-        return coords[1];
-      })
-      .attr("r", circleRadius_regular / zoom.scale()); // Adjust the radius based on the scal
+        .selectAll("circle")
+        .attr("cx", function (d) {
+          var coords = projection([+d.Longitude, +d.Latitude]);
+          return coords[0];
+        })
+        .attr("cy", function (d) {
+          var coords = projection([+d.Longitude, +d.Latitude]);
+          return coords[1];
+        })
+        .attr("r", circleRadius_regular / zoom.scale()); // Adjust the radius based on the scal
     });
 
   svg.call(zoom).on("wheel.zoom", function () {
@@ -206,7 +206,17 @@ d3.json("us_features.json", function (error, us) {
         var coords = projection([+d.Longitude, +d.Latitude]);
         return coords[1];
       })
-      .attr("r", circleRadius_regular / zoom.scale()); // Adjust the radius based on the scale
+      .attr("r", circleRadius_regular / zoom.scale())
+      .on("mouseover", function () {
+        d3.select(this)
+          .attr("r", circleRadius_hover / zoom.scale()) // Bigger radius on hover
+          .style("opacity", 0.8); // More visible on hover
+      })
+      .on("mouseout", function () {
+        d3.select(this)
+          .attr("r", circleRadius_regular / zoom.scale()) // Restore regular radius on mouseout
+          .style("opacity", 0.5); // Restore regular opacity on mouseout
+      });
 
     // Adjust border crossing positions based on the new translate and scale
     crossingGroup
@@ -219,6 +229,16 @@ d3.json("us_features.json", function (error, us) {
         var coords = projection([+d.Longitude, +d.Latitude]);
         return coords[1];
       })
-      .attr("r", 4 / zoom.scale()); // Adjust the radius based on the scale
+      .attr("r", circleRadius_regular / zoom.scale())
+      .on("mouseover", function () {
+        d3.select(this)
+          .attr("r", circleRadius_hover / zoom.scale()) // Bigger radius on hover
+          .style("opacity", 0.8); // More visible on hover
+      })
+      .on("mouseout", function () {
+        d3.select(this)
+          .attr("r", circleRadius_regular / zoom.scale()) // Restore regular radius on mouseout
+          .style("opacity", 0.5); // Restore regular opacity on mouseout
+      }); // Adjust the radius based on the scale
   });
 });
