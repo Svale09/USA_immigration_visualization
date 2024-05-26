@@ -30,8 +30,8 @@ filtered_airports_data = airports_data[airports_data['Airport Code'].isin(unique
 
 filtered_airports_data = filtered_airports_data[
     (filtered_airports_data['Latitude'] >= 24) & 
-    (filtered_airports_data['Latitude'] <= 49) & 
-    (filtered_airports_data['Longitude'] >= -125) & 
+    (filtered_airports_data['Latitude'] <= 71) & 
+    (filtered_airports_data['Longitude'] >= -179) & 
     (filtered_airports_data['Longitude'] <= -66)
 ]
 

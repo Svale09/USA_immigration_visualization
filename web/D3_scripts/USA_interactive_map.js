@@ -14,9 +14,11 @@ var svg = d3.select("body")
 
 var g = svg.append("g");
 
+// Load US map data
 d3.json("us_features.json", function (error, us) {
   if (error) throw error;
 
+  // Draw states
   g.append("g")
     .attr("class", "states")
     .selectAll("path")
@@ -28,14 +30,12 @@ d3.json("us_features.json", function (error, us) {
     .style("stroke", "#fff")
     .style("stroke-width", "1px");
 
-  // AIRPORTS visualization
+  // Group for airports
   var airportGroup = g.append("g").attr("class", "airports");
 
+  // Load airport data
   d3.json("uniqe_airports.json", function (error, airportData) {
     if (error) throw error;
-
-    // Log the data to see if it's correctly loaded
-    console.log("Loaded airport data:", airportData);
 
     // Draw circles representing airport locations
     airportGroup.selectAll("circle")
@@ -44,18 +44,43 @@ d3.json("us_features.json", function (error, us) {
       .append("circle")
       .attr("cx", function (d) {
         var coords = projection([+d.Longitude, +d.Latitude]);
-        console.log("Projected coordinates for", d, ":", coords);
-        return coords[0]; // Pass longitude and latitude as an array to the projection function
+        return coords[0];
       })
       .attr("cy", function (d) {
         var coords = projection([+d.Longitude, +d.Latitude]);
-        return coords[1]; // Pass longitude and latitude as an array to the projection function
+        return coords[1];
       })
       .attr("r", 5)
       .style("fill", "red")
       .style("opacity", 0.75);
   });
 
+  // Group for border crossings
+  var crossingGroup = g.append("g").attr("class", "crossings");
+
+  // Load border crossing data
+  d3.json("coordinates_dataset.json", function (error, crossingsData) {
+    if (error) throw error;
+
+    // Draw circles representing border crossings
+    crossingGroup.selectAll("circle")
+      .data(crossingsData)
+      .enter()
+      .append("circle")
+      .attr("cx", function (d) {
+        var coords = projection([+d.Longitude, +d.Latitude]);
+        return coords[0];
+      })
+      .attr("cy", function (d) {
+        var coords = projection([+d.Longitude, +d.Latitude]);
+        return coords[1];
+      })
+      .attr("r", 5)
+      .style("fill", "green")
+      .style("opacity", 0.75);
+  });
+
+  // Zoom behavior
   var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", function () {
@@ -76,6 +101,18 @@ d3.json("us_features.json", function (error, us) {
 
       // Adjust airport positions based on the new translate and scale
       airportGroup.selectAll("circle")
+        .attr("cx", function (d) {
+          var coords = projection([+d.Longitude, +d.Latitude]);
+          return coords[0];
+        })
+        .attr("cy", function (d) {
+          var coords = projection([+d.Longitude, +d.Latitude]);
+          return coords[1];
+        })
+        .attr("r", 5 / scale); // Adjust the radius based on the scale
+
+      // Adjust border crossing positions based on the new translate and scale
+      crossingGroup.selectAll("circle")
         .attr("cx", function (d) {
           var coords = projection([+d.Longitude, +d.Latitude]);
           return coords[0];
@@ -120,6 +157,18 @@ d3.json("us_features.json", function (error, us) {
 
     // Adjust airport positions based on the new translate and scale
     airportGroup.selectAll("circle")
+      .attr("cx", function (d) {
+        var coords = projection([+d.Longitude, +d.Latitude]);
+        return coords[0];
+      })
+      .attr("cy", function (d) {
+        var coords = projection([+d.Longitude, +d.Latitude]);
+        return coords[1];
+      })
+      .attr("r", 5 / newScale); // Adjust the radius based on the scale
+
+    // Adjust border crossing positions based on the new translate and scale
+    crossingGroup.selectAll("circle")
       .attr("cx", function (d) {
         var coords = projection([+d.Longitude, +d.Latitude]);
         return coords[0];
