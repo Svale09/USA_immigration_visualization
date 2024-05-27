@@ -1,7 +1,8 @@
 import { updateGraph } from './traffic.js';
 
-var width = 900;
-var height = 500;
+var margin = { top: 10, right: 70, bottom: 10, left: 10 };
+var width = 800 - margin.left - margin.right;
+var height = 500 - margin.top - margin.bottom;
 
 var circleRadius_regular = 4;
 var circleRadius_hover = 10;
@@ -16,8 +17,8 @@ var path = d3.geo.path().projection(projection);
 var svg = d3
   .select("#map")
   .append("svg")
-  .attr("width", width)
-  .attr("height", height);
+  .attr("width", width /*+ margin.left + margin.right*/)
+  .attr("height", height /*+ margin.top + margin.bottom*/);
 
 var g = svg.append("g");
 

@@ -1,15 +1,10 @@
 // Define dimensions for the chart
 var margin = { top: 20, right: 20, bottom: 30, left: 50 };
-var width = 800;
-var height = 400;
+var width = 600 - margin.top - margin.bottom;
+var height = 400 - margin.left - margin.right;
 
 // Create SVG element
-var svg = d3
-  .select("#airports_full")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g");
+
 
 // Load the data
 d3.json("FINAL_flightsJSON.json", function (error, data) {
@@ -48,25 +43,6 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     ])
     .range([height, 0]);
 
-  // Define the line function
-  var line = d3.svg
-    .line()
-    .x(function (d) {
-      return x(d.key);
-    })
-    .y(function (d) {
-      return y(d.values);
-    });
-
-  // Add the line
-  svg
-    .append("path")
-    .datum(nestedData)
-    .attr("class", "line")
-    .attr("d", line)
-    .style("stroke", "steelblue")
-    .style("fill", "none");
-
   // Define the axes
   var xAxis = d3.svg
     .axis()
@@ -79,6 +55,13 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     );
 
   var yAxis = d3.svg.axis().scale(y).orient("left");
+
+  var svg = d3
+  .select("#airports_full")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g");
 
   // Add the axes
   svg
@@ -102,4 +85,23 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Total Passengers");
+
+      // Define the line function
+  var line = d3.svg
+  .line()
+  .x(function (d) {
+    return x(d.key);
+  })
+  .y(function (d) {
+    return y(d.values);
+  });
+
+// Add the line
+svg
+  .append("path")
+  .datum(nestedData)
+  .attr("class", "line")
+  .attr("d", line)
+  .style("stroke", "steelblue")
+  .style("fill", "none");
 });

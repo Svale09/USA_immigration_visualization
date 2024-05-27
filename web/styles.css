@@ -12,6 +12,7 @@
 }
 
 #map, #graph1 {
+    margin: 1vw 1vw;
     flex: 1; /* Distribute space equally */
     position: relative;
     min-width: 0; /* Prevents overflowing in flex container */

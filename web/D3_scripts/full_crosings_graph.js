@@ -1,7 +1,7 @@
 // Define dimensions for the chart
 var margin = { top: 20, right: 20, bottom: 30, left: 50 };
-var width = 800;
-var height = 400;
+var width = 600 - margin.top - margin.bottom;
+var height = 400 - margin.left - margin.right;
 
 // Create SVG element
 var svg = d3
