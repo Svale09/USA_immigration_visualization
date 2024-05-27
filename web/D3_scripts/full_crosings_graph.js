@@ -1,16 +1,15 @@
 // Define dimensions for the chart
 var margin = { top: 20, right: 20, bottom: 30, left: 50 };
-var width = 800 - margin.left - margin.right;
-var height = 400 - margin.top - margin.bottom;
+var width = 800;
+var height = 400;
 
 // Create SVG element
 var svg = d3
   .select("#crossings_full")
   .append("svg")
-  .attr("width", width)
+  .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .append("g");
 
 // Load the data
 d3.json("FINAL_border_crossing_JSON.json", function (error, data) {

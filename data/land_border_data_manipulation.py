@@ -35,8 +35,8 @@ aggregated_data['Point'] = aggregated_data['Point'].str.extract(r'\((.*?)\)')
 scaler = MinMaxScaler()
 aggregated_data['total_crossings_normalized'] = scaler.fit_transform(aggregated_data[['total_crossings']])
 
-aggregated_data.to_csv('data/border_crossing_data/FINAL_border_crossing.csv', index=False)
-aggregated_data.to_json('data/border_crossing_data/FINAL_border_crossing_JSON.json', orient='records')
+aggregated_data.to_csv('web/FINAL_border_crossing_JSON.json', index=False)
+#aggregated_data.to_json('data/border_crossing_data/FINAL_border_crossing_JSON.json', orient='records')
 
 print(aggregated_data.info())
 print(aggregated_data.head(30))

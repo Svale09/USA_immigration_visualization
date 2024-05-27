@@ -1,20 +1,20 @@
-export function updateGraph(airportCode) {
+export function updateGraph(selectedCode, dataset) {
     d3.json("FINAL_flightsJSON.json", function (error, data) {
       if (error) throw error;
   
       // Log the loaded JSON data
       console.log("Loaded Data:", data);
   
-      // Filter data by selected usg_apt value
+      // Filter data by selected.PortCode value
       var filteredData = data.filter(function (d) {
-        return d.usg_apt === airportCode;
+        return d.PortCode === selectedCode;
       });
   
       // Log the filtered data
-      console.log("Filtered Data for Airport Code", airportCode, ":", filteredData);
+      console.log("Filtered Data for Airport selectedCode", selectedCode, ":", filteredData);
   
       if (filteredData.length === 0) {
-        console.warn("No data found for the selected airport code:", airportCode);
+        console.warn("No data found for the selected airport selectedCode:", selectedCode);
         return; // Exit if no data is found
       }
   
@@ -26,7 +26,7 @@ export function updateGraph(airportCode) {
         })
         .rollup(function (v) {
           return d3.sum(v, function (d) {
-            return d.total_passengers;
+            return d.total_crossings;
           });
         })
         .entries(filteredData);
@@ -35,7 +35,7 @@ export function updateGraph(airportCode) {
       var parseDate = d3.time.format("%Y-%B").parse;
       monthlyData.forEach(function (d) {
         d.date = parseDate(d.key);
-        d.total_passengers = +d.values;
+        d.total_crossings = +d.values;
       });
   
       console.log("Parsed Monthly Data:", monthlyData);
@@ -43,7 +43,7 @@ export function updateGraph(airportCode) {
       // Define dimensions for the chart
       var margin = { top: 20, right: 20, bottom: 30, left: 50 };
       var width = 800 - margin.left - margin.right;
-      var height = 400 - margin.top - margin.bottom;
+      var height = 300 - margin.top - margin.bottom;
   
       // Define scales for x and y axes
       var x = d3.time
@@ -61,7 +61,7 @@ export function updateGraph(airportCode) {
         .domain([
           0,
           d3.max(monthlyData, function (d) {
-            return d.total_passengers;
+            return d.total_crossings;
           }),
         ]);
   
@@ -72,7 +72,7 @@ export function updateGraph(airportCode) {
           return x(d.date);
         })
         .y(function (d) {
-          return y(d.total_passengers);
+          return y(d.total_crossings);
         });
   
       // Clear any existing SVG elements in the graph1 div
