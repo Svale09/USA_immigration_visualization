@@ -1,5 +1,7 @@
 import { updateGraph } from './traffic.js';
 
+//TODO add hover and a tooltip to airport/border crossing dots. Add tooltip when hovering over the line in the linegraph.
+
 var margin = { top: 10, right: 70, bottom: 10, left: 10 };
 var width = 800 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
@@ -77,7 +79,7 @@ d3.json("us_features.json", function (error, us) {
         console.log("Airport coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Airport Code:", d["Airport Code"]);
         var airportCode = d["Airport Code"];
-        updateGraph(airportCode)
+        updateGraph(airportCode, airport)
       });
   });
 
@@ -119,6 +121,7 @@ d3.json("us_features.json", function (error, us) {
       .on("click", function (d) {
         console.log("Crossing coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Port code:", d.PortCode);
+        updateGraph(d.PortCode, border)
       });
   });
 
