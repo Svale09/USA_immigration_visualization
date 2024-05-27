@@ -2,586 +2,703 @@
   {
     "PortCode": 101,
     "Latitude": 43.659444,
-    "Longitude": -70.243056
+    "Longitude": -70.243056,
+    "PortName": "Portland"
   },
   {
     "PortCode": 103,
     "Latitude": 44.8594395785,
-    "Longitude": -66.98007566
+    "Longitude": -66.98007566,
+    "PortName": "Eastport"
   },
   {
     "PortCode": 104,
     "Latitude": 45.805661,
-    "Longitude": -70.396722
+    "Longitude": -70.396722,
+    "PortName": "Jackman"
   },
   {
     "PortCode": 105,
     "Latitude": 45.568761,
-    "Longitude": -67.428541
+    "Longitude": -67.428541,
+    "PortName": "Vanceboro"
   },
   {
     "PortCode": 106,
     "Latitude": 46.134879,
-    "Longitude": -67.781288
+    "Longitude": -67.781288,
+    "PortName": "Houlton"
   },
   {
     "PortCode": 107,
     "Latitude": 46.765323,
-    "Longitude": -67.789471
+    "Longitude": -67.789471,
+    "PortName": "Fort Fairfield"
   },
   {
     "PortCode": 108,
     "Latitude": 47.159645,
-    "Longitude": -67.930799
+    "Longitude": -67.930799,
+    "PortName": "Van Buren"
   },
   {
     "PortCode": 109,
     "Latitude": 47.360052,
-    "Longitude": -68.328684
+    "Longitude": -68.328684,
+    "PortName": "Madawaska"
   },
   {
     "PortCode": 110,
     "Latitude": 47.249206,
-    "Longitude": -68.603918
+    "Longitude": -68.603918,
+    "PortName": "Fort Kent"
   },
   {
     "PortCode": 112,
     "Latitude": 44.399722,
-    "Longitude": -68.224722
+    "Longitude": -68.224722,
+    "PortName": "Bar Harbor"
   },
   {
     "PortCode": 115,
     "Latitude": 45.188548,
-    "Longitude": -67.275381
+    "Longitude": -67.275381,
+    "PortName": "Calais"
   },
   {
     "PortCode": 118,
     "Latitude": 46.924555,
-    "Longitude": -67.789597
+    "Longitude": -67.789597,
+    "PortName": "Limestone"
   },
   {
     "PortCode": 127,
     "Latitude": 46.450335,
-    "Longitude": -67.78484
+    "Longitude": -67.78484,
+    "PortName": "Bridgewater"
   },
   {
     "PortCode": 203,
     "Latitude": 45.01174,
-    "Longitude": -72.588559
+    "Longitude": -72.588559,
+    "PortName": "Richford"
   },
   {
     "PortCode": 206,
     "Latitude": 45.013411,
-    "Longitude": -71.505309
+    "Longitude": -71.505309,
+    "PortName": "Beecher Falls"
   },
   {
     "PortCode": 209,
     "Latitude": 45.005739,
-    "Longitude": -72.099279
+    "Longitude": -72.099279,
+    "PortName": "Derby Line"
   },
   {
     "PortCode": 211,
     "Latitude": 45.010771,
-    "Longitude": -71.793219
+    "Longitude": -71.793219,
+    "PortName": "Norton"
   },
   {
     "PortCode": 212,
     "Latitude": 45.015414,
-    "Longitude": -73.085037
+    "Longitude": -73.085037,
+    "PortName": "Highgate Springs"
   },
   {
     "PortCode": 701,
     "Latitude": 44.7330898624,
-    "Longitude": -75.4577501759
+    "Longitude": -75.4577501759,
+    "PortName": "Ogdensburg"
   },
   {
     "PortCode": 704,
     "Latitude": 44.990556,
-    "Longitude": -74.739722
+    "Longitude": -74.739722,
+    "PortName": "Massena"
   },
   {
     "PortCode": 706,
     "Latitude": 44.134917,
-    "Longitude": -76.352489
+    "Longitude": -76.352489,
+    "PortName": "Cape Vincent"
   },
   {
     "PortCode": 708,
     "Latitude": 44.347229,
-    "Longitude": -75.983592
+    "Longitude": -75.983592,
+    "PortName": "Alexandria Bay"
   },
   {
     "PortCode": 712,
     "Latitude": 45.0088325953,
-    "Longitude": -73.4526634854
+    "Longitude": -73.4526634854,
+    "PortName": "Champlain Rouses Point"
   },
   {
     "PortCode": 715,
     "Latitude": 44.992058,
-    "Longitude": -74.308172
+    "Longitude": -74.308172,
+    "PortName": "Trout River"
   },
   {
     "PortCode": 901,
     "Latitude": 43.09549,
-    "Longitude": -79.055847
+    "Longitude": -79.055847,
+    "PortName": "Buffalo Niagara Falls"
   },
   {
     "PortCode": 2301,
     "Latitude": 25.95155,
-    "Longitude": -97.40067
+    "Longitude": -97.40067,
+    "PortName": "Brownsville"
   },
   {
     "PortCode": 2302,
     "Latitude": 29.326784,
-    "Longitude": -100.927612
+    "Longitude": -100.927612,
+    "PortName": "Del Rio"
   },
   {
     "PortCode": 2303,
     "Latitude": 28.705483,
-    "Longitude": -100.511977
+    "Longitude": -100.511977,
+    "PortName": "Eagle Pass"
   },
   {
     "PortCode": 2304,
     "Latitude": 27.499561,
-    "Longitude": -99.507412
+    "Longitude": -99.507412,
+    "PortName": "Laredo"
   },
   {
     "PortCode": 2305,
     "Latitude": 26.095032,
-    "Longitude": -98.271092
+    "Longitude": -98.271092,
+    "PortName": "Hidalgo"
   },
   {
     "PortCode": 2307,
     "Latitude": 26.365761,
-    "Longitude": -98.802513
+    "Longitude": -98.802513,
+    "PortName": "Rio Grande City"
   },
   {
     "PortCode": 2309,
     "Latitude": 26.062133,
-    "Longitude": -97.949958
+    "Longitude": -97.949958,
+    "PortName": "Progreso"
   },
   {
     "PortCode": 2310,
     "Latitude": 26.403928,
-    "Longitude": -99.018981
+    "Longitude": -99.018981,
+    "PortName": "Roma"
   },
   {
     "PortCode": 2401,
     "Latitude": 31.6731261377,
-    "Longitude": -106.335449846
+    "Longitude": -106.335449846,
+    "PortName": "Ysleta"
   },
   {
     "PortCode": 2402,
     "Latitude": 31.764363,
-    "Longitude": -106.451188
+    "Longitude": -106.451188,
+    "PortName": "El Paso"
   },
   {
     "PortCode": 2403,
     "Latitude": 29.561827,
-    "Longitude": -104.394907
+    "Longitude": -104.394907,
+    "PortName": "Presidio"
   },
   {
     "PortCode": 2404,
     "Latitude": 31.435334,
-    "Longitude": -106.142669
+    "Longitude": -106.142669,
+    "PortName": "Tornillo"
   },
   {
     "PortCode": 2406,
     "Latitude": 31.783742,
-    "Longitude": -107.627948
+    "Longitude": -107.627948,
+    "PortName": "Columbus"
   },
   {
     "PortCode": 2408,
     "Latitude": 31.783939,
-    "Longitude": -106.679437
+    "Longitude": -106.679437,
+    "PortName": "Santa Teresa"
   },
   {
     "PortCode": 2410,
     "Latitude": 29.190074,
-    "Longitude": -102.946705
+    "Longitude": -102.946705,
+    "PortName": "Boquillas"
   },
   {
     "PortCode": 2502,
     "Latitude": 32.718143,
-    "Longitude": -114.72832
+    "Longitude": -114.72832,
+    "PortName": "Andrade"
   },
   {
     "PortCode": 2503,
     "Latitude": 32.673389,
-    "Longitude": -115.388018
+    "Longitude": -115.388018,
+    "PortName": "Calexico"
   },
   {
     "PortCode": 2504,
     "Latitude": 32.542528,
-    "Longitude": -117.028761
+    "Longitude": -117.028761,
+    "PortName": "San Ysidro"
   },
   {
     "PortCode": 2505,
     "Latitude": 32.576428,
-    "Longitude": -116.626216
+    "Longitude": -116.626216,
+    "PortName": "Tecate"
   },
   {
     "PortCode": 2506,
     "Latitude": 32.55033,
-    "Longitude": -116.938538
+    "Longitude": -116.938538,
+    "PortName": "Otay Mesa"
   },
   {
     "PortCode": 2507,
     "Latitude": 32.673389,
-    "Longitude": -115.388018
+    "Longitude": -115.388018,
+    "PortName": "Calexico East"
   },
   {
     "PortCode": 2582,
     "Latitude": 32.54834,
-    "Longitude": -116.974462
+    "Longitude": -116.974462,
+    "PortName": "Cross Border Xpress"
   },
   {
     "PortCode": 2601,
     "Latitude": 31.334043,
-    "Longitude": -109.560344
+    "Longitude": -109.560344,
+    "PortName": "Douglas"
   },
   {
     "PortCode": 2602,
     "Latitude": 31.880195,
-    "Longitude": -112.817077
+    "Longitude": -112.817077,
+    "PortName": "Lukeville"
   },
   {
     "PortCode": 2603,
     "Latitude": 31.334084,
-    "Longitude": -109.948413
+    "Longitude": -109.948413,
+    "PortName": "Naco"
   },
   {
     "PortCode": 2604,
     "Latitude": 31.332839,
-    "Longitude": -110.942516
+    "Longitude": -110.942516,
+    "PortName": "Nogales"
   },
   {
     "PortCode": 2606,
     "Latitude": 31.483039,
-    "Longitude": -111.544363
+    "Longitude": -111.544363,
+    "PortName": "Sasabe"
   },
   {
     "PortCode": 2608,
     "Latitude": 32.485,
-    "Longitude": -114.7822222
+    "Longitude": -114.7822222,
+    "PortName": "San Luis"
   },
   {
     "PortCode": 3004,
     "Latitude": 48.994045,
-    "Longitude": -122.748884
+    "Longitude": -122.748884,
+    "PortName": "Blaine"
   },
   {
     "PortCode": 3007,
     "Latitude": 48.121858,
-    "Longitude": -123.430694
+    "Longitude": -123.430694,
+    "PortName": "Port Angeles"
   },
   {
     "PortCode": 3009,
     "Latitude": 49.002388,
-    "Longitude": -122.264805
+    "Longitude": -122.264805,
+    "PortName": "Sumas"
   },
   {
     "PortCode": 3010,
     "Latitude": 48.49617,
-    "Longitude": -122.59953
+    "Longitude": -122.59953,
+    "PortName": "Anacortes"
   },
   {
     "PortCode": 3011,
     "Latitude": 49.000144,
-    "Longitude": -119.67103
+    "Longitude": -119.67103,
+    "PortName": "Nighthawk"
   },
   {
     "PortCode": 3012,
     "Latitude": 49.000083,
-    "Longitude": -118.503722
+    "Longitude": -118.503722,
+    "PortName": "Danville"
   },
   {
     "PortCode": 3013,
     "Latitude": 49.000083,
-    "Longitude": -118.761166
+    "Longitude": -118.761166,
+    "PortName": "Ferry"
   },
   {
     "PortCode": 3014,
     "Latitude": 48.534485,
-    "Longitude": -123.016484
+    "Longitude": -123.016484,
+    "PortName": "Friday Harbor"
   },
   {
     "PortCode": 3015,
     "Latitude": 49.00075,
-    "Longitude": -117.627583
+    "Longitude": -117.627583,
+    "PortName": "Boundary"
   },
   {
     "PortCode": 3016,
     "Latitude": 49.000083,
-    "Longitude": -118.223777
+    "Longitude": -118.223777,
+    "PortName": "Laurier"
   },
   {
     "PortCode": 3017,
     "Latitude": 49.0020555547,
-    "Longitude": -123.068055556
+    "Longitude": -123.068055556,
+    "PortName": "Point Roberts"
   },
   {
     "PortCode": 3019,
     "Latitude": 49.000083,
-    "Longitude": -119.461833
+    "Longitude": -119.461833,
+    "PortName": "Oroville"
   },
   {
     "PortCode": 3020,
     "Latitude": 49.0005,
-    "Longitude": -117.831527
+    "Longitude": -117.831527,
+    "PortName": "Frontier"
   },
   {
     "PortCode": 3023,
     "Latitude": 49.002277,
-    "Longitude": -122.485027
+    "Longitude": -122.485027,
+    "PortName": "Kenneth G Ward"
   },
   {
     "PortCode": 3025,
     "Latitude": 48.999972,
-    "Longitude": -117.299444
+    "Longitude": -117.299444,
+    "PortName": "Metaline Falls"
   },
   {
     "PortCode": 3102,
     "Latitude": 55.34208,
-    "Longitude": -131.647804
+    "Longitude": -131.647804,
+    "PortName": "Ketchikan"
   },
   {
     "PortCode": 3103,
     "Latitude": 59.629722,
-    "Longitude": -135.164444
+    "Longitude": -135.164444,
+    "PortName": "Skagway"
   },
   {
     "PortCode": 3104,
     "Latitude": 62.614961,
-    "Longitude": -141.001444
+    "Longitude": -141.001444,
+    "PortName": "Alcan"
   },
   {
     "PortCode": 3106,
     "Latitude": 59.450556,
-    "Longitude": -136.361944
+    "Longitude": -136.361944,
+    "PortName": "Dalton Cache"
   },
   {
     "PortCode": 3301,
     "Latitude": 48.999194,
-    "Longitude": -104.574333
+    "Longitude": -104.574333,
+    "PortName": "Raymond"
   },
   {
     "PortCode": 3302,
     "Latitude": 49.000555,
-    "Longitude": -116.181027
+    "Longitude": -116.181027,
+    "PortName": "Eastport"
   },
   {
     "PortCode": 3306,
     "Latitude": 48.999527,
-    "Longitude": -108.387916
+    "Longitude": -108.387916,
+    "PortName": "Turner"
   },
   {
     "PortCode": 3308,
     "Latitude": 48.999861,
-    "Longitude": -116.49925
+    "Longitude": -116.49925,
+    "PortName": "Porthill"
   },
   {
     "PortCode": 3309,
     "Latitude": 48.999527,
-    "Longitude": -105.407638
+    "Longitude": -105.407638,
+    "PortName": "Scobey"
   },
   {
     "PortCode": 3310,
     "Latitude": 48.998388,
-    "Longitude": -111.959611
+    "Longitude": -111.959611,
+    "PortName": "Sweetgrass"
   },
   {
     "PortCode": 3312,
     "Latitude": 48.999347,
-    "Longitude": -105.162324
+    "Longitude": -105.162324,
+    "PortName": "Whitetail"
   },
   {
     "PortCode": 3316,
     "Latitude": 48.998083,
-    "Longitude": -113.378777
+    "Longitude": -113.378777,
+    "PortName": "Piegan"
   },
   {
     "PortCode": 3317,
     "Latitude": 48.999527,
-    "Longitude": -106.377583
+    "Longitude": -106.377583,
+    "PortName": "Opheim"
   },
   {
     "PortCode": 3318,
     "Latitude": 48.999638,
-    "Longitude": -115.056027
+    "Longitude": -115.056027,
+    "PortName": "Roosville"
   },
   {
     "PortCode": 3319,
     "Latitude": 48.999829,
-    "Longitude": -107.831819
+    "Longitude": -107.831819,
+    "PortName": "Morgan"
   },
   {
     "PortCode": 3321,
     "Latitude": 48.99725,
-    "Longitude": -111.257916
+    "Longitude": -111.257916,
+    "PortName": "Whitlash"
   },
   {
     "PortCode": 3322,
     "Latitude": 48.998555,
-    "Longitude": -112.78825
+    "Longitude": -112.78825,
+    "PortName": "Del Bonita"
   },
   {
     "PortCode": 3323,
     "Latitude": 48.999361,
-    "Longitude": -110.215083
+    "Longitude": -110.215083,
+    "PortName": "Wildhorse"
   },
   {
     "PortCode": 3325,
     "Latitude": 48.999972,
-    "Longitude": -109.731333
+    "Longitude": -109.731333,
+    "PortName": "Willow Creek"
   },
   {
     "PortCode": 3401,
     "Latitude": 49.000453,
-    "Longitude": -97.237036
+    "Longitude": -97.237036,
+    "PortName": "Pembina"
   },
   {
     "PortCode": 3402,
     "Latitude": 49.000171,
-    "Longitude": -97.206601
+    "Longitude": -97.206601,
+    "PortName": "Noyes"
   },
   {
     "PortCode": 3403,
     "Latitude": 48.998944,
-    "Longitude": -102.551944
+    "Longitude": -102.551944,
+    "PortName": "Portal"
   },
   {
     "PortCode": 3404,
     "Latitude": 49.000527,
-    "Longitude": -97.557333
+    "Longitude": -97.557333,
+    "PortName": "Neche"
   },
   {
     "PortCode": 3405,
     "Latitude": 48.999277,
-    "Longitude": -99.659111
+    "Longitude": -99.659111,
+    "PortName": "St John"
   },
   {
     "PortCode": 3406,
     "Latitude": 48.998833,
-    "Longitude": -102.27475
+    "Longitude": -102.27475,
+    "PortName": "Northgate"
   },
   {
     "PortCode": 3407,
     "Latitude": 49.000472,
-    "Longitude": -97.908416
+    "Longitude": -97.908416,
+    "PortName": "Walhalla"
   },
   {
     "PortCode": 3408,
     "Latitude": 49.000138,
-    "Longitude": -98.693777
+    "Longitude": -98.693777,
+    "PortName": "Hannah"
   },
   {
     "PortCode": 3409,
     "Latitude": 49.000027,
-    "Longitude": -98.938361
+    "Longitude": -98.938361,
+    "PortName": "Sarles"
   },
   {
     "PortCode": 3410,
     "Latitude": 48.999305,
-    "Longitude": -103.486555
+    "Longitude": -103.486555,
+    "PortName": "Ambrose"
   },
   {
     "PortCode": 3413,
     "Latitude": 48.999472,
-    "Longitude": -101.296055
+    "Longitude": -101.296055,
+    "PortName": "Antler"
   },
   {
     "PortCode": 3414,
     "Latitude": 48.999305,
-    "Longitude": -101.627527
+    "Longitude": -101.627527,
+    "PortName": "Sherwood"
   },
   {
     "PortCode": 3415,
     "Latitude": 48.999583,
-    "Longitude": -99.346527
+    "Longitude": -99.346527,
+    "PortName": "Hansboro"
   },
   {
     "PortCode": 3416,
     "Latitude": 49.00025,
-    "Longitude": -98.36525
+    "Longitude": -98.36525,
+    "PortName": "Maida"
   },
   {
     "PortCode": 3417,
     "Latitude": 48.999555,
-    "Longitude": -103.80925
+    "Longitude": -103.80925,
+    "PortName": "Fortuna"
   },
   {
     "PortCode": 3419,
     "Latitude": 48.999611,
-    "Longitude": -101.017277
+    "Longitude": -101.017277,
+    "PortName": "Westhope"
   },
   {
     "PortCode": 3420,
     "Latitude": 48.999333,
-    "Longitude": -103.004361
+    "Longitude": -103.004361,
+    "PortName": "Noonan"
   },
   {
     "PortCode": 3421,
     "Latitude": 48.999416,
-    "Longitude": -100.555805
+    "Longitude": -100.555805,
+    "PortName": "Carbury"
   },
   {
     "PortCode": 3422,
     "Latitude": 48.999277,
-    "Longitude": -100.052166
+    "Longitude": -100.052166,
+    "PortName": "Dunseith"
   },
   {
     "PortCode": 3423,
     "Latitude": 48.999,
-    "Longitude": -95.376555
+    "Longitude": -95.376555,
+    "PortName": "Warroad"
   },
   {
     "PortCode": 3424,
     "Latitude": 48.719109,
-    "Longitude": -94.590467
+    "Longitude": -94.590467,
+    "PortName": "Baudette"
   },
   {
     "PortCode": 3425,
     "Latitude": 48.999916,
-    "Longitude": -95.977694
+    "Longitude": -95.977694,
+    "PortName": "Pinecreek"
   },
   {
     "PortCode": 3426,
     "Latitude": 48.999538,
-    "Longitude": -95.766469
+    "Longitude": -95.766469,
+    "PortName": "Roseau"
   },
   {
     "PortCode": 3430,
     "Latitude": 49.000194,
-    "Longitude": -96.800527
+    "Longitude": -96.800527,
+    "PortName": "Lancaster"
   },
   {
     "PortCode": 3604,
     "Latitude": 48.6078,
-    "Longitude": -93.401355
+    "Longitude": -93.401355,
+    "PortName": "International Falls"
   },
   {
     "PortCode": 3613,
     "Latitude": 48.001427,
-    "Longitude": -89.58515
+    "Longitude": -89.58515,
+    "PortName": "Grand Portage"
   },
   {
     "PortCode": 3801,
     "Latitude": 42.331685,
-    "Longitude": -83.047924
+    "Longitude": -83.047924,
+    "PortName": "Detroit"
   },
   {
     "PortCode": 3802,
     "Latitude": 42.998611,
-    "Longitude": -82.423611
+    "Longitude": -82.423611,
+    "PortName": "Port Huron"
   },
   {
     "PortCode": 3803,
     "Latitude": 46.508611,
-    "Longitude": -84.360833
+    "Longitude": -84.360833,
+    "PortName": "Sault Sainte Marie"
   },
   {
     "PortCode": 3814,
     "Latitude": 42.6183,
-    "Longitude": -82.5311
+    "Longitude": -82.5311,
+    "PortName": "Algonac"
   }
 ]

@@ -22,5 +22,5 @@ df.info()
 print(df.head(20))
 
 
-df.to_json("data/border_crossing_data/FINAL_border_crossing.csv", orient='records')
+df.to_json("data/border_crossing_data/FINAL_border_crossing.json", orient='records')
 coordinates_df.to_json("data/border_crossing_data/coordinates_dataset.json", orient='records')

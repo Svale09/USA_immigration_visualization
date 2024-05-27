@@ -1,7 +1,7 @@
 // Define dimensions for the chart
-var margin = { top: 20, right: 20, bottom: 30, left: 50 };
+var margin = { top: 20, right: 20, bottom: 10, left: 50 };
       var width = 700 - margin.left - margin.right;
-      var height = 40 - margin.top - margin.bottom;
+      var height = 400 - margin.top - margin.bottom;
 
 // Create SVG element
 
@@ -58,7 +58,7 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     .scale(y)
     .orient("left")
     .tickFormat(function (d) {
-      return d / 1000000 + "M"; // Divide by 1 million and append "M"
+      return d / 1000000; // Divide by 1 million and append "M"
     });
 
   var svg = d3
@@ -84,13 +84,14 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
   svg
     .append("g")
     .attr("class", "y axis")
+    .attr("transform", "translate(0," + 6 + ")")
     .call(yAxis)
     .append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", 6)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
-    .text("Total Passengers");
+    .text("Total Passengers (Mil)");
 
   // Define the line function
   var line = d3.svg
