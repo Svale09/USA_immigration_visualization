@@ -1,13 +1,14 @@
 // Define dimensions for the chart
-var width = 800;
-var height = 400;
+var margin = { top: 20, right: 20, bottom: 30, left: 50 };
+var width = 800 - margin.left - margin.right;
+var height = 400 - margin.top - margin.bottom;
 
 // Create SVG element
 var svg = d3
   .select("#crossings_full")
   .append("svg")
   .attr("width", width)
-  .attr("height", height)
+  .attr("height", height + margin.top + margin.bottom)
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
