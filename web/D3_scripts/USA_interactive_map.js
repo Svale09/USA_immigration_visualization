@@ -81,6 +81,10 @@ d3.json("us_features.json", function (error, us) {
           .duration(200)
           .style("opacity", 0.9);
         tooltip.html("Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]);
+
+        // OPTIONAL - could add so the graph is updated on hover not on click, could add that click adds the airport to a comparison or something similiar 
+        /*var airportCode = d["Airport Code"];
+        updateGraph(airportCode, "airport")*/;
       })
       .on("mouseout", function () {
         d3.select(this)
