@@ -42,7 +42,7 @@ export function updateGraph(selectedCode, dataset) {
   
       // Define dimensions for the chart
       var margin = { top: 20, right: 20, bottom: 30, left: 50 };
-      var width = 800 - margin.left - margin.right;
+      var width = 700 - margin.left - margin.right;
       var height = 300 - margin.top - margin.bottom;
   
       // Define scales for x and y axes

@@ -4,7 +4,7 @@ var margin = { top: 10, right: 70, bottom: 10, left: 10 };
 var width = 800 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
 
-var circleRadius_regular = 4;
+var circleRadius_regular = 5;
 var circleRadius_hover = 10;
 
 var projection = d3.geo

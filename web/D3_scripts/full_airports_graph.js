@@ -1,10 +1,9 @@
 // Define dimensions for the chart
 var margin = { top: 20, right: 20, bottom: 30, left: 50 };
-var width = 600 - margin.top - margin.bottom;
-var height = 400 - margin.left - margin.right;
+      var width = 700 - margin.left - margin.right;
+      var height = 40 - margin.top - margin.bottom;
 
 // Create SVG element
-
 
 // Load the data
 d3.json("FINAL_flightsJSON.json", function (error, data) {
@@ -54,14 +53,21 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
       })
     );
 
-  var yAxis = d3.svg.axis().scale(y).orient("left");
+    var yAxis = d3.svg
+    .axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(function (d) {
+      return d / 1000000 + "M"; // Divide by 1 million and append "M"
+    });
 
   var svg = d3
-  .select("#airports_full")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g");
+    .select("#airports_full")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + ")");
 
   // Add the axes
   svg
@@ -86,22 +92,22 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     .style("text-anchor", "end")
     .text("Total Passengers");
 
-      // Define the line function
+  // Define the line function
   var line = d3.svg
-  .line()
-  .x(function (d) {
-    return x(d.key);
-  })
-  .y(function (d) {
-    return y(d.values);
-  });
+    .line()
+    .x(function (d) {
+      return x(d.key);
+    })
+    .y(function (d) {
+      return y(d.values);
+    });
 
-// Add the line
-svg
-  .append("path")
-  .datum(nestedData)
-  .attr("class", "line")
-  .attr("d", line)
-  .style("stroke", "steelblue")
-  .style("fill", "none");
+  // Add the line
+  svg
+    .append("path")
+    .datum(nestedData)
+    .attr("class", "line")
+    .attr("d", line)
+    .style("stroke", "steelblue")
+    .style("fill", "none");
 });

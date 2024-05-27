@@ -9,7 +9,8 @@ var svg = d3
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
-  .append("g");
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // Load the data
 d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
