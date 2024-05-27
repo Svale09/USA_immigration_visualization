@@ -82,7 +82,7 @@ d3.json("us_features.json", function (error, us) {
           .style("opacity", 0.8); // More visible on hover
         tooltip.transition()
           .duration(200)
-          .style("opacity", .9);
+          .style("opacity", 0.9);
         tooltip.html("Airport: " + d["Airport Name"] + "<br/>Code: " + d["Airport Code"] + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
       })
       .on("mouseout", function () {
@@ -133,7 +133,7 @@ d3.json("us_features.json", function (error, us) {
         tooltip.transition()
           .duration(200)
           .style("opacity", 0.9);
-        tooltip.html("Border Crossing: " + d["Port Name"] + "<br/>Code: " + d.PortCode + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
+        tooltip.html("Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
       })
       .on("mouseout", function () {
         d3.select(this)
@@ -240,23 +240,16 @@ d3.json("us_features.json", function (error, us) {
         return coords[1];
       })
       .attr("r", circleRadius_regular / zoom.scale())
-      .on("mouseover", function (event, d) {
+      .on("mouseover", function (d) {
         d3.select(this)
           .attr("r", circleRadius_hover / zoom.scale()) // Bigger radius on hover
           .style("opacity", 0.8); // More visible on hover
         tooltip.transition()
           .duration(200)
-          .style("opacity", .9);
-        tooltip.html("Airport: " + d["Airport Name"] + "<br/>Code: " + d["Airport Code"] + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude])
-          .style("left", (event.pageX + 5) + "px")
-          .style("top", (event.pageY - 28) + "px");
+          .style("opacity", 0.9);
+        tooltip.html("Airport: " + d["Airport Name"] + "<br/>Code: " + d["Airport Code"] + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
       })
-      .on("mousemove", function (event, d) {
-        tooltip
-          .style("left", (event.pageX + 5) + "px")
-          .style("top", (event.pageY - 28) + "px");
-      })
-      .on("mouseout", function (event, d) {
+      .on("mouseout", function () {
         d3.select(this)
           .attr("r", circleRadius_regular / zoom.scale()) // Restore regular radius on mouseout
           .style("opacity", 0.5); // Restore regular opacity on mouseout
@@ -277,21 +270,14 @@ d3.json("us_features.json", function (error, us) {
         return coords[1];
       })
       .attr("r", circleRadius_regular / zoom.scale())
-      .on("mouseover", function (event, d) {
+      .on("mouseover", function (d) {
         d3.select(this)
           .attr("r", circleRadius_hover / zoom.scale()) // Bigger radius on hover
           .style("opacity", 0.8); // More visible on hover
         tooltip.transition()
           .duration(200)
-          .style("opacity", .9);
-        tooltip.html("Border Crossing: " + d["Port Name"] + "<br/>Code: " + d.PortCode + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude])
-          .style("left", (event.pageX + 5) + "px")
-          .style("top", (event.pageY - 28) + "px");
-      })
-      .on("mousemove", function (event, d) {
-        tooltip
-          .style("left", (event.pageX + 5) + "px")
-          .style("top", (event.pageY - 28) + "px");
+          .style("opacity", 0.9);
+        tooltip.html("Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
       })
       .on("mouseout", function (event, d) {
         d3.select(this)
