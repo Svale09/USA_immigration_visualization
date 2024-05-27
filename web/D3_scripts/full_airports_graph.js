@@ -23,7 +23,7 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     })
     .rollup(function (v) {
       return d3.sum(v, function (d) {
-        return d.total_passengers;
+        return d.total_crossings;
       });
     })
     .entries(data);
