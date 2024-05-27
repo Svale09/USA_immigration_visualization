@@ -79,7 +79,7 @@ d3.json("us_features.json", function (error, us) {
         console.log("Airport coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Airport Code:", d["Airport Code"]);
         var airportCode = d["Airport Code"];
-        updateGraph(airportCode, airport)
+        updateGraph(airportCode, "airport")
       });
   });
 
@@ -121,7 +121,7 @@ d3.json("us_features.json", function (error, us) {
       .on("click", function (d) {
         console.log("Crossing coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Port code:", d.PortCode);
-        updateGraph(d.PortCode, border)
+        updateGraph(d.PortCode, "border")
       });
   });
 

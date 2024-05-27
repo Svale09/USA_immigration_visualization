@@ -1,5 +1,19 @@
 export function updateGraph(selectedCode, dataset) {
-    d3.json("FINAL_flightsJSON.json", function (error, data) {
+  console.log("Selected point type: ", dataset);
+
+    var pathToData;
+
+    if(dataset === "airport"){
+      pathToData = "FINAL_flightsJSON.json";
+    }
+    else if (dataset === "border"){
+      pathToData = "FINAL_border_crossing_JSON.json";
+    }
+    else {
+      console.log("Dataset not recognized: ", dataset);
+    }
+
+    d3.json(pathToData, function (error, data) {
       if (error) throw error;
   
       // Log the loaded JSON data
@@ -11,7 +25,7 @@ export function updateGraph(selectedCode, dataset) {
       });
   
       // Log the filtered data
-      console.log("Filtered Data for Airport selectedCode", selectedCode, ":", filteredData);
+      console.log("Filtered Data for entry point selectedCode", selectedCode, ":", filteredData);
   
       if (filteredData.length === 0) {
         console.warn("No data found for the selected airport selectedCode:", selectedCode);
