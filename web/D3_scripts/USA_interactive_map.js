@@ -25,15 +25,12 @@ var svg = d3
 var g = svg.append("g");
 
 // Create the tooltip element
-var tooltip = d3.select("body").append("div")
+var tooltip = d3.select("#map").append("div")
   .attr("class", "tooltip")
-  .style("position", "absolute")
-  .style("background-color", "white")
-  .style("border", "solid 1px #ccc")
-  .style("padding", "10px")
-  .style("border-radius", "5px")
   .style("pointer-events", "none")
-  .style("opacity", 0);
+  .style("opacity", 0)
+  .style("top", margin.top + "px") // Position from the top
+  .style("right", margin.right + "px"); // Position from the right
 
 // Load US map data
 d3.json("us_features.json", function (error, us) {
@@ -83,7 +80,7 @@ d3.json("us_features.json", function (error, us) {
         tooltip.transition()
           .duration(200)
           .style("opacity", 0.9);
-        tooltip.html("Airport: " + d["Airport Name"] + "<br/>Code: " + d["Airport Code"] + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
+        tooltip.html("Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]);
       })
       .on("mouseout", function () {
         d3.select(this)
@@ -133,7 +130,7 @@ d3.json("us_features.json", function (error, us) {
         tooltip.transition()
           .duration(200)
           .style("opacity", 0.9);
-        tooltip.html("Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
+        tooltip.html("Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode);
       })
       .on("mouseout", function () {
         d3.select(this)
@@ -247,7 +244,7 @@ d3.json("us_features.json", function (error, us) {
         tooltip.transition()
           .duration(200)
           .style("opacity", 0.9);
-        tooltip.html("Airport: " + d["Airport Name"] + "<br/>Code: " + d["Airport Code"] + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
+          tooltip.html("Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]);
       })
       .on("mouseout", function () {
         d3.select(this)
@@ -277,7 +274,7 @@ d3.json("us_features.json", function (error, us) {
         tooltip.transition()
           .duration(200)
           .style("opacity", 0.9);
-        tooltip.html("Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode + "<br/>Coordinates: " + [+d.Latitude, +d.Longitude]);
+        tooltip.html("Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode);
       })
       .on("mouseout", function (event, d) {
         d3.select(this)
