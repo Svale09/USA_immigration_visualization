@@ -16,7 +16,27 @@
     <div id="main">
       <div id="map_graph">
         <div id="map"></div>
-        <div id="graph1"></div>
+        <div id="graph_and_info">
+          <div id="info">
+            <p>Click or pick a crossing/airport to display info</p>
+            <h2>Point of entry info:</h2>
+            <ul>
+              <li>
+                <p class="info_name">City Name:&nbsp;</p>
+                <p id="info_city" class="info_value">-</p>
+                <p class="info_name">Airport name/State:&nbsp;</p>
+                <p id="info_name" class="info_value">-</p>
+              </li>
+              <li>
+                <p class="info_name">Entry point code:&nbsp;</p>
+                <p id="info_code" class="info_value">-</p>
+                <p class="info_name">Coordinates:&nbsp;</p>
+                <p id="info_coordinates" class="info_value">-</p>
+              </li>
+            </ul>
+          </div>
+          <div id="graph1"></div>
+        </div>
       </div>
       <div id="full_graphs">
         <div id="airports_full" class="graph-container"></div>
@@ -24,7 +44,7 @@
       </div>
     </div>
 
-    <script type="module" src="D3_scripts/USA_interactive_map.js"></script>
+    <script type="module" src="D3_scripts/USA_interactive_map.js" defer></script>
     <script type="module" src="D3_scripts/traffic.js"></script>
     <script src="D3_scripts/full_airports_graph.js"></script>
     <script src="D3_scripts/full_crosings_graph.js"></script>

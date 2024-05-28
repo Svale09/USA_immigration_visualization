@@ -9,6 +9,11 @@ var height = 500 - margin.top - margin.bottom;
 var circleRadius_regular = 5;
 var circleRadius_hover = 10;
 
+var info_city = document.getElementById("info_city");
+var info_name = document.getElementById("info_name");
+var info_code = document.getElementById("info_code");
+var info_coords = document.getElementById("info_coordinates");
+
 var projection = d3.geo
   .albersUsa()
   .scale(1000)
@@ -99,6 +104,11 @@ d3.json("us_features.json", function (error, us) {
         console.log("Airport Code:", d["Airport Code"]);
         var airportCode = d["Airport Code"];
         updateGraph(airportCode, "airport");
+
+        info_city.textContent = d['City Name'];
+        info_name.textContent = d['Airport Name'];
+        info_code.textContent = airportCode;
+        info_coords.textContent = "Lat: " + d.Latitude +", Long: " + d.Longitude;
       });
   });
 
