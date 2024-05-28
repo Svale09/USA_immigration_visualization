@@ -19,8 +19,8 @@ var path = d3.geo.path().projection(projection);
 var svg = d3
   .select("#map")
   .append("svg")
-  .attr("width", width /*+ margin.left + margin.right*/)
-  .attr("height", height /*+ margin.top + margin.bottom*/);
+  .attr("width", width)
+  .attr("height", height);
 
 var g = svg.append("g");
 

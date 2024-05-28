@@ -92,7 +92,7 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     .attr("x", -125)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
-    .text("Total Passengers (Mil)");
+    .text("Total Passengers (mil)");
 
   // Define the line function
   var line = d3.svg

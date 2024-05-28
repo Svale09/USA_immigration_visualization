@@ -94,7 +94,7 @@ d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
     .attr("x", -125)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
-    .text("Total Crossings (Mil)");
+    .text("Total Crossings (mil)");
 
 
   var line = d3.svg
