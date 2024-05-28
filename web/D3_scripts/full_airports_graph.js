@@ -1,5 +1,5 @@
 // Define dimensions for the chart
-var margin = { top: 20, right: 20, bottom: 10, left: 50 };
+var margin = { top: 20, right: 20, bottom: 10, left: 60 };
       var width = 700 - margin.left - margin.right;
       var height = 400 - margin.top - margin.bottom;
 
@@ -65,7 +65,7 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     .select("#airports_full")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("height", height + margin.top + margin.bottom*2)
     .append("g")
     .attr("transform", "translate(" + margin.left + ")");
 
@@ -88,7 +88,8 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     .call(yAxis)
     .append("text")
     .attr("transform", "rotate(-90)")
-    .attr("y", 6)
+    .attr("y", -60)
+    .attr("x", -125)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Total Passengers (Mil)");

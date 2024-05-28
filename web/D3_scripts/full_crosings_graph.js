@@ -1,16 +1,9 @@
 // Define dimensions for the chart
-var margin = { top: 20, right: 20, bottom: 30, left: 50 };
-var width = 600 - margin.top - margin.bottom;
-var height = 400 - margin.left - margin.right;
+var margin = { top: 20, right: 20, bottom: 10, left: 60 };
+      var width = 700 - margin.left - margin.right;
+      var height = 400 - margin.top - margin.bottom;
 
 // Create SVG element
-var svg = d3
-  .select("#crossings_full")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // Load the data
 d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
@@ -30,8 +23,6 @@ d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
       });
     })
     .entries(data);
-
-  console.log("Nested data:", nestedData);
 
   // Set up scales
   var x = d3.scale
@@ -53,10 +44,59 @@ d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
     ])
     .range([height, 0]);
 
-  console.log("X Scale domain:", x.domain());
-  console.log("Y Scale domain:", y.domain());
+  // Define the axes
+  var xAxis = d3.svg
+    .axis()
+    .scale(x)
+    .orient("bottom")
+    .tickValues(
+      x.domain().filter(function (d, i) {
+        return i % 2 === 0;
+      })
+    );
 
-  // Define the line function
+  var yAxis = d3.svg
+    .axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(function (d) {
+      return d / 1000000; // Divide by 1 million and append "M"
+    });
+
+  var svg = d3
+    .select("#crossings_full")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom*2)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + ")");
+
+  // Add the axes
+  svg
+    .append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis)
+    .selectAll("text")
+    .style("text-anchor", "end")
+    .attr("dx", "-.8em")
+    .attr("dy", ".15em")
+    .attr("transform", "rotate(-45)");
+
+  svg
+    .append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(0," + 6 + ")")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", -60)
+    .attr("x", -125)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Total Crossings (Mil)");
+
+
   var line = d3.svg
     .line()
     .x(function (d) {
@@ -66,35 +106,12 @@ d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
       return y(d.values);
     });
 
-  console.log("Line function:", line);
-
   // Add the line
-  svg.append("path").datum(nestedData).attr("class", "line").attr("d", line).style("fill", "none").style("stroke", "steelblue");
-
-  console.log("Line added");
-
-  // Define the axes
-  var xAxis = d3.svg.axis().scale(x).orient("bottom");
-
-  var yAxis = d3.svg.axis().scale(y).orient("left");
-
-  // Add the axes
   svg
-    .append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
-
-  svg
-    .append("g")
-    .attr("class", "y axis")
-    .call(yAxis)
-    .append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr("dy", ".71em")
-    .style("text-anchor", "end")
-    .text("Total Crossings");
-
-  console.log("Axes added");
+    .append("path")
+    .datum(nestedData)
+    .attr("class", "line")
+    .attr("d", line)
+    .style("fill", "none")
+    .style("stroke", "steelblue");
 });
