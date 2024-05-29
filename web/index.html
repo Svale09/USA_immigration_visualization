@@ -18,7 +18,16 @@
         <div id="map"></div>
         <div id="graph_and_info">
           <div id="info">
-            <p>Click or pick a crossing/airport to display info</p>
+            <div id="pick_entryPoint">
+              <p>Click or pick a crossing/airport to display info: </p>
+              <select name="type" id="typeDropdown">
+                <option value="airport">Airport</option>
+                <option value="border">Border Crossing</option>
+              </select>
+              <select name="specific" id="specificDropdown">
+                <option value="">Select a specific point of entry</option>
+              </select>
+            </div>
             <h2>Point of entry info:</h2>
             <ul>
               <li>
@@ -48,5 +57,6 @@
     <script type="module" src="D3_scripts/traffic.js"></script>
     <script src="D3_scripts/full_airports_graph.js"></script>
     <script src="D3_scripts/full_crosings_graph.js"></script>
+    <script type ="module" src="D3_scripts/dropdownPickers.js"></script>
   </body>
 </html>

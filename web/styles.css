@@ -54,6 +54,7 @@
 #graph_and_info {
   display: flex;
   flex-direction: column;
+  margin-top: 2vw;
 }
 
 ul {
@@ -65,12 +66,24 @@ ul {
 li {
   display: flex;
   flex-direction: row;
+  margin: 0;
+  padding: 0;
 }
 
 .info_value {
-    margin-right: 1vw;
+  margin-right: 1.5vw;
 }
 
-.info_name{
-    font-weight: bold;
+.info_name {
+  font-weight: bold;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 1vw;
+}
+
+#pick_entryPoint{
+    display: flex;
+    flex-direction: row;
 }
