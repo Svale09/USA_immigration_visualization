@@ -125,7 +125,7 @@ export function updateGraph(selectedCode, dataset) {
       d.date = parseDate(d.Year + "-" + d.Month); // Ensure total_crossings is treated as a number
     });
 
-    console.log("Parsed Data:", filteredData);
+    //console.log("Parsed Data:", filteredData);
 
     // Update the scales' domains based on the new data
     var x = window.graph.x;
@@ -165,7 +165,7 @@ export function updateGraph(selectedCode, dataset) {
 
     path.exit().remove();
 
-    console.log("Line Path:", line(filteredData));
+    //console.log("Line Path:", line(filteredData));
 
     // Update the axes
     svg.select(".x.axis").call(window.graph.xAxis);

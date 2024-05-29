@@ -46,6 +46,11 @@ typeDropdown.addEventListener("change", function () {
 specificDropdown.addEventListener("change", function () {
   var specificCode = this.value;
   var type = typeDropdown.value;
+  console.log("Selected code: "+specificCode+", Type: " + type);
+
+  if(type==="border"){
+    specificCode = Number(specificCode);
+  }
 
   if (specificCode) {
     updateGraph(specificCode, type);
