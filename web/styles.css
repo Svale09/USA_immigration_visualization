@@ -17,7 +17,7 @@ h2 {
 
 #map,
 #graph_and_info {
-  width: 44vw;
+  width: 720px;
   position: relative;
 }
 
@@ -38,7 +38,7 @@ h2 {
   margin-top: 2vw;
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 98vw;
   height: fit-content;
   justify-content: space-around;
 }
