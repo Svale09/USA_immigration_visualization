@@ -77,10 +77,6 @@ d3.json("us_features.json", function (error, us) {
         tooltip.html(
           "Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]
         );
-
-        // OPTIONAL - could add so the graph is updated on hover not on click, could add that click adds the airport to a comparison or something similiar
-        /*var airportCode = d["Airport Code"];
-        updateGraph(airportCode, "airport")*/
       })
       .on("mouseout", function () {
         d3.select(this).attr("r", circleRadius_regular).style("opacity", 0.5);
@@ -90,7 +86,13 @@ d3.json("us_features.json", function (error, us) {
         console.log("Airport coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Airport Code:", d["Airport Code"]);
         var airportCode = d["Airport Code"];
-        updateGraph(airportCode, "airport");
+        var info = {
+          city: d["City Name"],
+          name: d["Airport Name"],
+          code: airportCode,
+          coords: [+d.Latitude, +d.Longitude]
+        };
+        updateGraph(airportCode, "airport", info);
 
         info_city.textContent = d["City Name"];
         info_name.textContent = d["Airport Name"];
@@ -136,7 +138,14 @@ d3.json("us_features.json", function (error, us) {
       .on("click", function (d) {
         console.log("Crossing coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Port code:", d.PortCode);
-        updateGraph(d.PortCode, "border");
+        var info = {
+          city: d.PortName,
+          name: d.State,
+          code: d.PortCode,
+          coords: [+d.Latitude, +d.Longitude]
+        };
+        updateGraph(d.PortCode, "border", info);
+
         info_city.textContent = d.PortName;
         info_name.textContent = d.State;
         info_code.textContent = d.PortCode;
