@@ -82,6 +82,7 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
   svg
     .append("g")
     .attr("class", "y axis")
+    .attr("transform", "translate(0," + 6 + ")")
     .call(yAxis)
     .append("text")
     .attr("transform", "rotate(-90)")
@@ -108,6 +109,7 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     .attr("class", "line")
     .attr("d", line)
     .style("stroke", "steelblue")
+    .style("stroke-width", 2.5)
     .style("fill", "none");
 
   // Create a tooltip element

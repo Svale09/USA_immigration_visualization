@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-h2{
+h2 {
   width: fit-content;
 }
 
@@ -15,21 +15,18 @@ h2{
   height: 500px; /* Full viewport height */
 }
 
-#map, #graph_and_info{
+#map,
+#graph_and_info {
   width: 44vw;
   position: relative;
 }
 
-
-
-#graph_and_info{
+#graph_and_info {
   margin-left: 7vw;
 }
 
-
-
-
-#map svg { /*tooltip*/
+#map svg {
+  /*tooltip*/
   width: fit-content;
   height: fit-content;
   position: absolute;
@@ -93,10 +90,10 @@ p {
   margin-bottom: 1vw;
 }
 
-#pick_entryPoint{
-    display: flex;
-    flex-direction: row;
-    width: fit-content;
+#pick_entryPoint {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
 }
 
 .graph-tooltip {
@@ -108,6 +105,6 @@ p {
   pointer-events: none;
 }
 
-#specificDropdown{
+#specificDropdown {
   width: 12vw;
 }
