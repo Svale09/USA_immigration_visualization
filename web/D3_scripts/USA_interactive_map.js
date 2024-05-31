@@ -1,6 +1,4 @@
-import { updateGraph } from './traffic.js';
-
-//TODO add hover and a tooltip to airport/border crossing dots. Add tooltip when hovering over the line in the linegraph.
+import { updateGraph } from "./traffic.js";
 
 var margin = { top: 10, right: 70, bottom: 10, left: 10 };
 var width = 800 - margin.left - margin.right;
@@ -29,19 +27,18 @@ var svg = d3
 
 var g = svg.append("g");
 
-// Create the tooltip element
-var tooltip = d3.select("#map").append("div")
+var tooltip = d3
+  .select("#map")
+  .append("div")
   .attr("class", "tooltip")
   .style("pointer-events", "none")
   .style("opacity", 0)
-  .style("top", margin.top + "px") // Position from the top
-  .style("right", margin.right + "px"); // Position from the right
+  .style("top", margin.top + "px")
+  .style("right", margin.right + "px");
 
-// Load US map data
 d3.json("us_features.json", function (error, us) {
   if (error) throw error;
 
-  // Draw states
   g.append("g")
     .attr("class", "states")
     .selectAll("path")
@@ -53,14 +50,11 @@ d3.json("us_features.json", function (error, us) {
     .style("stroke", "#fff")
     .style("stroke-width", "1px");
 
-  // Group for airports
   var airportGroup = g.append("g").attr("class", "airports");
 
-  // Load airport data
   d3.json("cleaned_airports.json", function (error, airportData) {
     if (error) throw error;
 
-    // Draw circles representing airport locations
     airportGroup
       .selectAll("circle")
       .data(airportData)
@@ -74,30 +68,23 @@ d3.json("us_features.json", function (error, us) {
         var coords = projection([+d.Longitude, +d.Latitude]);
         return coords[1];
       })
-      .attr("r", circleRadius_regular) // Smaller regular radius
+      .attr("r", circleRadius_regular)
       .style("fill", "red")
-      .style("opacity", 0.5) // Less visible regular opacity
-      // Add event listeners for hover events
+      .style("opacity", 0.5)
       .on("mouseover", function (d) {
-        d3.select(this)
-          .attr("r", circleRadius_hover) // Bigger radius on hover
-          .style("opacity", 0.8); // More visible on hover
-        tooltip.transition()
-          .duration(200)
-          .style("opacity", 0.9);
-        tooltip.html("Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]);
+        d3.select(this).attr("r", circleRadius_hover).style("opacity", 0.8);
+        tooltip.transition().duration(200).style("opacity", 0.9);
+        tooltip.html(
+          "Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]
+        );
 
-        // OPTIONAL - could add so the graph is updated on hover not on click, could add that click adds the airport to a comparison or something similiar 
+        // OPTIONAL - could add so the graph is updated on hover not on click, could add that click adds the airport to a comparison or something similiar
         /*var airportCode = d["Airport Code"];
-        updateGraph(airportCode, "airport")*/;
+        updateGraph(airportCode, "airport")*/
       })
       .on("mouseout", function () {
-        d3.select(this)
-          .attr("r", circleRadius_regular) // Restore regular radius on mouseout
-          .style("opacity", 0.5); // Restore regular opacity on mouseout
-        tooltip.transition()
-          .duration(500)
-          .style("opacity", 0);
+        d3.select(this).attr("r", circleRadius_regular).style("opacity", 0.5);
+        tooltip.transition().duration(500).style("opacity", 0);
       })
       .on("click", function (d) {
         console.log("Airport coordinates: ", [+d.Latitude, +d.Longitude]);
@@ -105,21 +92,19 @@ d3.json("us_features.json", function (error, us) {
         var airportCode = d["Airport Code"];
         updateGraph(airportCode, "airport");
 
-        info_city.textContent = d['City Name'];
-        info_name.textContent = d['Airport Name'];
+        info_city.textContent = d["City Name"];
+        info_name.textContent = d["Airport Name"];
         info_code.textContent = airportCode;
-        info_coords.textContent = "Lat: " + d.Latitude +", Long: " + d.Longitude;
+        info_coords.textContent =
+          "Lat: " + d.Latitude + ", Long: " + d.Longitude;
       });
   });
 
-  // Group for border crossings
   var crossingGroup = g.append("g").attr("class", "crossings");
 
-  // Load border crossing data
   d3.json("coordinates_dataset.json", function (error, crossingsData) {
     if (error) throw error;
 
-    // Draw circles representing border crossings
     crossingGroup
       .selectAll("circle")
       .data(crossingsData)
@@ -133,26 +118,20 @@ d3.json("us_features.json", function (error, us) {
         var coords = projection([+d.Longitude, +d.Latitude]);
         return coords[1];
       })
-      .attr("r", circleRadius_regular) // Smaller regular radius
+      .attr("r", circleRadius_regular)
       .style("fill", "green")
-      .style("opacity", 0.5) // Less visible regular opacity
-      // Add event listeners for hover events
+      .style("opacity", 0.5)
+
       .on("mouseover", function (d) {
-        d3.select(this)
-          .attr("r", circleRadius_hover) // Bigger radius on hover
-          .style("opacity", 0.8); // More visible on hover
-        tooltip.transition()
-          .duration(200)
-          .style("opacity", 0.9);
-        tooltip.html("Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode);
+        d3.select(this).attr("r", circleRadius_hover).style("opacity", 0.8);
+        tooltip.transition().duration(200).style("opacity", 0.9);
+        tooltip.html(
+          "Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode
+        );
       })
       .on("mouseout", function () {
-        d3.select(this)
-          .attr("r", circleRadius_regular) // Restore regular radius on mouseout
-          .style("opacity", 0.5); // Restore regular opacity on mouseout
-        tooltip.transition()
-          .duration(500)
-          .style("opacity", 0);
+        d3.select(this).attr("r", circleRadius_regular).style("opacity", 0.5);
+        tooltip.transition().duration(500).style("opacity", 0);
       })
       .on("click", function (d) {
         console.log("Crossing coordinates: ", [+d.Latitude, +d.Longitude]);
@@ -161,7 +140,6 @@ d3.json("us_features.json", function (error, us) {
       });
   });
 
-  // Zoom behavior
   var zoom = d3.behavior
     .zoom()
     .scaleExtent([1, 10])
@@ -181,7 +159,6 @@ d3.json("us_features.json", function (error, us) {
 
       g.attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 
-      // Adjust airport positions based on the new translate and scale
       airportGroup
         .selectAll("circle")
         .attr("cx", function (d) {
@@ -192,9 +169,7 @@ d3.json("us_features.json", function (error, us) {
           var coords = projection([+d.Longitude, +d.Latitude]);
           return coords[1];
         })
-        .attr("r", circleRadius_regular / zoom.scale()); // Adjust the radius based on the scale
-
-      // Adjust border crossing positions based on the new translate and scale
+        .attr("r", circleRadius_regular / zoom.scale());
       crossingGroup
         .selectAll("circle")
         .attr("cx", function (d) {
@@ -205,7 +180,7 @@ d3.json("us_features.json", function (error, us) {
           var coords = projection([+d.Longitude, +d.Latitude]);
           return coords[1];
         })
-        .attr("r", circleRadius_regular / zoom.scale()); // Adjust the radius based on the scal
+        .attr("r", circleRadius_regular / zoom.scale());
     });
 
   svg.call(zoom).on("wheel.zoom", function () {
@@ -239,7 +214,6 @@ d3.json("us_features.json", function (error, us) {
     zoom.scale(newScale).translate(translate);
     g.attr("transform", "translate(" + translate + ")scale(" + newScale + ")");
 
-    // Adjust airport positions based on the new translate and scale
     airportGroup
       .selectAll("circle")
       .attr("cx", function (d) {
@@ -253,23 +227,20 @@ d3.json("us_features.json", function (error, us) {
       .attr("r", circleRadius_regular / zoom.scale())
       .on("mouseover", function (d) {
         d3.select(this)
-          .attr("r", circleRadius_hover / zoom.scale()) // Bigger radius on hover
-          .style("opacity", 0.8); // More visible on hover
-        tooltip.transition()
-          .duration(200)
-          .style("opacity", 0.9);
-          tooltip.html("Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]);
+          .attr("r", circleRadius_hover / zoom.scale())
+          .style("opacity", 0.8);
+        tooltip.transition().duration(200).style("opacity", 0.9);
+        tooltip.html(
+          "Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]
+        );
       })
       .on("mouseout", function () {
         d3.select(this)
-          .attr("r", circleRadius_regular / zoom.scale()) // Restore regular radius on mouseout
-          .style("opacity", 0.5); // Restore regular opacity on mouseout
-        tooltip.transition()
-          .duration(500)
-          .style("opacity", 0);
+          .attr("r", circleRadius_regular / zoom.scale())
+          .style("opacity", 0.5);
+        tooltip.transition().duration(500).style("opacity", 0);
       });
 
-    // Adjust border crossing positions based on the new translate and scale
     crossingGroup
       .selectAll("circle")
       .attr("cx", function (d) {
@@ -283,20 +254,18 @@ d3.json("us_features.json", function (error, us) {
       .attr("r", circleRadius_regular / zoom.scale())
       .on("mouseover", function (d) {
         d3.select(this)
-          .attr("r", circleRadius_hover / zoom.scale()) // Bigger radius on hover
-          .style("opacity", 0.8); // More visible on hover
-        tooltip.transition()
-          .duration(200)
-          .style("opacity", 0.9);
-        tooltip.html("Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode);
+          .attr("r", circleRadius_hover / zoom.scale())
+          .style("opacity", 0.8);
+        tooltip.transition().duration(200).style("opacity", 0.9);
+        tooltip.html(
+          "Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode
+        );
       })
       .on("mouseout", function (event, d) {
         d3.select(this)
-          .attr("r", circleRadius_regular / zoom.scale()) // Restore regular radius on mouseout
-          .style("opacity", 0.5); // Restore regular opacity on mouseout
-        tooltip.transition()
-          .duration(500)
-          .style("opacity", 0);
-      }); // Adjust the radius based on the scale
+          .attr("r", circleRadius_regular / zoom.scale())
+          .style("opacity", 0.5);
+        tooltip.transition().duration(500).style("opacity", 0);
+      });
   });
 });

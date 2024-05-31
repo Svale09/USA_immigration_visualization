@@ -7,11 +7,15 @@ var specificDropdown = document.getElementById("specificDropdown");
 var airportsData = [];
 var crossingsData = [];
 
+var type = "airport";
 
 // Load the airport and border crossing data
 d3.json("cleaned_airports.json", function (error, data) {
   if (error) throw error;
   airportsData = data;
+  
+  // Trigger change event after loading airports data
+  initializeDropdown();
 });
 
 d3.json("coordinates_dataset.json", function (error, data) {
@@ -21,7 +25,7 @@ d3.json("coordinates_dataset.json", function (error, data) {
 
 // Event listener for the type dropdown
 typeDropdown.addEventListener("change", function () {
-  var type = this.value;
+  type = this.value;
   specificDropdown.innerHTML = '<option value="">Select Specific</option>';
   specificDropdown.disabled = type === "";
 
@@ -46,9 +50,9 @@ typeDropdown.addEventListener("change", function () {
 specificDropdown.addEventListener("change", function () {
   var specificCode = this.value;
   var type = typeDropdown.value;
-  console.log("Selected code: "+specificCode+", Type: " + type);
+  console.log("Selected code: " + specificCode + ", Type: " + type);
 
-  if(type==="border"){
+  if (type === "border") {
     specificCode = Number(specificCode);
   }
 
@@ -56,3 +60,9 @@ specificDropdown.addEventListener("change", function () {
     updateGraph(specificCode, type);
   }
 });
+
+// Initialize dropdown to set initial values and trigger change event
+function initializeDropdown() {
+  typeDropdown.value = "airport"; // Set initial value
+  typeDropdown.dispatchEvent(new Event('change')); // Trigger change event
+}
