@@ -17,7 +17,7 @@ export function initializeGraph() {
     .scale(y)
     .orient("left")
     .ticks(5)
-    .tickFormat(function(d) {
+    .tickFormat(function (d) {
       return d / 1000;
     });
 
@@ -78,9 +78,7 @@ export function initializeGraph() {
   };
 }
 
-export function updateGraph(selectedCode, dataset) {
-  console.log("Selected point type: ", dataset);
-
+export function updateGraph(selectedCode, dataset, info) {
   var pathToData;
 
   if (dataset === "airport") {
@@ -95,21 +93,9 @@ export function updateGraph(selectedCode, dataset) {
   d3.json(pathToData, function (error, data) {
     if (error) throw error;
 
-    // Log the loaded JSON data
-    console.log("Loaded Data:", data);
-
-    // Filter data by selected.PortCode value
     var filteredData = data.filter(function (d) {
       return d.PortCode === selectedCode;
     });
-
-    // Log the filtered data
-    console.log(
-      "Filtered Data for entry point selectedCode",
-      selectedCode,
-      ":",
-      filteredData
-    );
 
     if (filteredData.length === 0) {
       console.warn(
@@ -124,8 +110,6 @@ export function updateGraph(selectedCode, dataset) {
     filteredData.forEach(function (d) {
       d.date = parseDate(d.Year + "-" + d.Month); // Ensure total_crossings is treated as a number
     });
-
-    //console.log("Parsed Data:", filteredData);
 
     // Update the scales' domains based on the new data
     var x = window.graph.x;
@@ -179,6 +163,12 @@ export function updateGraph(selectedCode, dataset) {
       .attr("dx", "-.8em")
       .attr("dy", ".15em")
       .attr("transform", "rotate(-65)");
+
+    // Update the information in the HTML elements
+    document.getElementById("info_city").textContent = info.city;
+    document.getElementById("info_name").textContent = info.name;
+    document.getElementById("info_code").textContent = selectedCode;
+    document.getElementById("info_coordinates").textContent = info.coordinates;
   });
 }
 

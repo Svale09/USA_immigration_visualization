@@ -32,14 +32,24 @@ typeDropdown.addEventListener("change", function () {
   if (type === "airport") {
     airportsData.forEach(function (airport) {
       var option = document.createElement("option");
-      option.value = airport["Airport Code"];
+      option.value = JSON.stringify({
+        code: airport["Airport Code"],
+        name: airport["Airport Name"],
+        city: airport["City Name"],
+        coordinates: "Lat: " + airport.Latitude + ", Long: " + airport.Longitude
+      });
       option.textContent = airport["Airport Name"];
       specificDropdown.appendChild(option);
     });
   } else if (type === "border") {
     crossingsData.forEach(function (crossing) {
       var option = document.createElement("option");
-      option.value = crossing.PortCode;
+      option.value = JSON.stringify({
+        code: crossing.PortCode,
+        name: crossing.PortName,
+        city: crossing.PortName, // Assuming city is the same as port name for borders
+        coordinates: "Lat: " + crossing.Latitude + ", Long: " + crossing.Longitude
+      });
       option.textContent = crossing.PortName;
       specificDropdown.appendChild(option);
     });
@@ -48,16 +58,12 @@ typeDropdown.addEventListener("change", function () {
 
 // Event listener for the specific dropdown
 specificDropdown.addEventListener("change", function () {
-  var specificCode = this.value;
+  var selectedData = JSON.parse(this.value);
+  var specificCode = selectedData.code;
   var type = typeDropdown.value;
-  console.log("Selected code: " + specificCode + ", Type: " + type);
-
-  if (type === "border") {
-    specificCode = Number(specificCode);
-  }
 
   if (specificCode) {
-    updateGraph(specificCode, type);
+    updateGraph(specificCode, type, selectedData);
   }
 });
 

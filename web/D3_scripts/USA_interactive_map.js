@@ -137,6 +137,11 @@ d3.json("us_features.json", function (error, us) {
         console.log("Crossing coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Port code:", d.PortCode);
         updateGraph(d.PortCode, "border");
+        info_city.textContent = d.PortName;
+        info_name.textContent = d.State;
+        info_code.textContent = d.PortCode;
+        info_coords.textContent =
+          "Lat: " + d.Latitude + ", Long: " + d.Longitude;
       });
   });
 
