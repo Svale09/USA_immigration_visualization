@@ -14,6 +14,7 @@ h2 {
 }
 
 #map_graph {
+  margin: 2vw 0vw;
   padding: 0vw 2vw;
   display: flex;
   flex-direction: row;
@@ -27,7 +28,11 @@ h2 {
 }
 
 #graph_and_info{
-  margin-left:  5vw;
+  margin-left:  7vw;
+  padding: 0vw 1vw;
+  border: 1px solid rgb(159, 159, 159);
+  border-radius: 16px;
+  box-shadow: 10px 10px 5px lightgray;
 }
 
 
@@ -112,7 +117,7 @@ p {
 }
 
 #specificDropdown {
-  width: 12vw;
+  width: 10vw;
 }
 
 header{
@@ -134,13 +139,14 @@ h1{
 }
 
 select{
-  margin: 0;
+  margin: 0vw 1vw;
   padding: 0;
   font-family: 'Teko', sans-serif;
-  font-size: 1.05vw;
+  font-size: 1.1vw;
 }
 
-select>option{
-  font-family: 'Teko', sans-serif;
+#mg_title{
+  align-self: center;
 }
+
 
