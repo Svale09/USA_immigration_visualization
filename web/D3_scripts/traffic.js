@@ -78,7 +78,18 @@ export function initializeGraph() {
   };
 }
 
+var info_city = document.getElementById("info_city");
+var info_name = document.getElementById("info_name");
+var info_code = document.getElementById("info_code");
+var info_coordinates = document.getElementById("info_coordinates");
+
 export function updateGraph(selectedCode, dataset, info) {
+  // Update the information in the HTML elements
+  info_city.textContent = info.city;
+  info_name.textContent = info.name;
+  info_code.textContent = selectedCode;
+  info_coordinates.textContent = info.coordinates;
+
   var pathToData;
 
   if (dataset === "airport") {
@@ -163,12 +174,6 @@ export function updateGraph(selectedCode, dataset, info) {
       .attr("dx", "-.8em")
       .attr("dy", ".15em")
       .attr("transform", "rotate(-65)");
-
-    // Update the information in the HTML elements
-    document.getElementById("info_city").textContent = info.city;
-    document.getElementById("info_name").textContent = info.name;
-    document.getElementById("info_code").textContent = selectedCode;
-    document.getElementById("info_coordinates").textContent = info.coordinates;
   });
 }
 

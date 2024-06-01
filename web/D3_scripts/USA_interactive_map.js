@@ -98,7 +98,7 @@ d3.json("us_features.json", function (error, us) {
         info_name.textContent = d["Airport Name"];
         info_code.textContent = airportCode;
         info_coords.textContent =
-          "Lat: " + d.Latitude + ", Long: " + d.Longitude;
+          "Lat: " + d.Latitude.toFixed(2) + ", Long: " + d.Longitude.toFixed(2);
       });
   });
 
