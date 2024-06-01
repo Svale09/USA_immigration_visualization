@@ -36,7 +36,8 @@ typeDropdown.addEventListener("change", function () {
         code: airport["Airport Code"],
         name: airport["Airport Name"],
         city: airport["City Name"],
-        coordinates: "Lat: " + airport.Latitude + ", Long: " + airport.Longitude
+        coordinates: "Lat: " + airport.Latitude + ", Long: " + airport.Longitude,
+        type: "Airport",
       });
       option.textContent = airport["Airport Name"];
       specificDropdown.appendChild(option);
@@ -48,7 +49,8 @@ typeDropdown.addEventListener("change", function () {
         code: crossing.PortCode,
         name: crossing.PortName,
         city: crossing.PortName, // Assuming city is the same as port name for borders
-        coordinates: "Lat: " + crossing.Latitude + ", Long: " + crossing.Longitude
+        coordinates: "Lat: " + crossing.Latitude + ", Long: " + crossing.Longitude,
+        type: "Border",
       });
       option.textContent = crossing.PortName;
       specificDropdown.appendChild(option);

@@ -11,6 +11,7 @@ var info_city = document.getElementById("info_city");
 var info_name = document.getElementById("info_name");
 var info_code = document.getElementById("info_code");
 var info_coords = document.getElementById("info_coordinates");
+var info_type = document.getElementById("info_type");
 
 var projection = d3.geo
   .albersUsa()
@@ -90,7 +91,8 @@ d3.json("us_features.json", function (error, us) {
           city: d["City Name"],
           name: d["Airport Name"],
           code: airportCode,
-          coords: [+d.Latitude, +d.Longitude]
+          coords: [+d.Latitude, +d.Longitude],
+          type: "Airport"
         };
         updateGraph(airportCode, "airport", info);
 
@@ -99,6 +101,7 @@ d3.json("us_features.json", function (error, us) {
         info_code.textContent = airportCode;
         info_coords.textContent =
           "Lat: " + d.Latitude.toFixed(2) + ", Long: " + d.Longitude.toFixed(2);
+        info_type.textContent = " Airport"
       });
   });
 
@@ -142,7 +145,8 @@ d3.json("us_features.json", function (error, us) {
           city: d.PortName,
           name: d.State,
           code: d.PortCode,
-          coords: [+d.Latitude, +d.Longitude]
+          coords: [+d.Latitude, +d.Longitude],
+          type: "Borders"
         };
         updateGraph(d.PortCode, "border", info);
 
@@ -151,6 +155,7 @@ d3.json("us_features.json", function (error, us) {
         info_code.textContent = d.PortCode;
         info_coords.textContent =
           "Lat: " + d.Latitude + ", Long: " + d.Longitude;
+        info_type.textContent = "Border"
       });
   });
 

@@ -82,6 +82,7 @@ var info_city = document.getElementById("info_city");
 var info_name = document.getElementById("info_name");
 var info_code = document.getElementById("info_code");
 var info_coordinates = document.getElementById("info_coordinates");
+var info_type = document.getElementById("info_type");
 
 export function updateGraph(selectedCode, dataset, info) {
   // Update the information in the HTML elements
@@ -89,6 +90,8 @@ export function updateGraph(selectedCode, dataset, info) {
   info_name.textContent = info.name;
   info_code.textContent = selectedCode;
   info_coordinates.textContent = info.coordinates;
+  info_type.textContent = info.type;
+
 
   var pathToData;
 
