@@ -11,7 +11,6 @@ h2 {
   margin-bottom: 2vw;
   display: flex;
   flex-direction: row;
-  width: 100vw; /* Full viewport width */
   height: 500px; /* Full viewport height */
 }
 

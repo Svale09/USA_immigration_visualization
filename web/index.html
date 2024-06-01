@@ -13,13 +13,16 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header>
+      <h1>USA Immigration Visualization</h1>
+    </header>
     <div id="main">
       <div id="map_graph">
         <div id="map"></div>
         <div id="graph_and_info">
           <div id="info">
             <div id="pick_entryPoint">
-              <p>Click or pick a crossing/airport to display info: </p>
+              <p>Click or pick a crossing/airport to display info:</p>
               <select name="type" id="typeDropdown">
                 <option value="airport">Airport</option>
                 <option value="border">Border Crossing</option>
@@ -53,10 +56,14 @@
       </div>
     </div>
 
-    <script type="module" src="D3_scripts/USA_interactive_map.js" defer></script>
+    <script
+      type="module"
+      src="D3_scripts/USA_interactive_map.js"
+      defer
+    ></script>
     <script type="module" src="D3_scripts/traffic.js"></script>
     <script src="D3_scripts/full_airports_graph.js"></script>
     <script src="D3_scripts/full_crosings_graph.js"></script>
-    <script type ="module" src="D3_scripts/dropdownPickers.js"></script>
+    <script type="module" src="D3_scripts/dropdownPickers.js"></script>
   </body>
 </html>
