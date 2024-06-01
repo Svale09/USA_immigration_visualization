@@ -1,5 +1,5 @@
 // Define dimensions for the chart
-var margin = { top: 20, right: 20, bottom: 10, left: 60 };
+var margin = { top: 50, right: 20, bottom: 10, left: 60 }; // Increased top margin to accommodate title
 var width = 700 - margin.left - margin.right;
 var height = 400 - margin.top - margin.bottom;
 
@@ -61,13 +61,23 @@ d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
       return d / 1000000; // Divide by 1 million and append "M"
     });
 
-    var svg = d3
+  var svg = d3
     .select("#crossings_full")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom * 4)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  // Add the title
+  svg
+    .append("text")
+    .attr("x", width / 2)
+    .attr("y", -margin.top / 2)
+    .attr("text-anchor", "middle")
+    .style("font-size", "16px")
+    .style("font-weight", "bold")
+    .text("Immigration via border crossings");
 
   // Add the axes
   svg

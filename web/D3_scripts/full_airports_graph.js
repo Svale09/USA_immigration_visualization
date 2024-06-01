@@ -67,6 +67,16 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+  // Add the title
+  svg
+    .append("text")
+    .attr("x", width / 2)
+    .attr("y", -margin.top / 2)
+    .attr("text-anchor", "middle")
+    .style("font-size", "16px")
+    .style("font-weight", "bold")
+    .text("Immigration via air travel");
+
   // Add the axes
   svg
     .append("g")

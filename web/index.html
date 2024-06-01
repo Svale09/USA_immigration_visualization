@@ -23,6 +23,7 @@
     <header>
       <h1 id="main_h1">USA Immigration Visualization</h1>
     </header>
+    </div>
     <div id="main">
       <h3 id="mg_title">Click on an airport/border crossing - OR - Pick a specific one from the list</h3>
       <div id="pick_entryPoint">
@@ -33,7 +34,6 @@
           <select name="specific" id="specificDropdown">
             <option value="">Select a specific point of entry</option>
           </select>
-        </div>
       </div>
       <div id="map_graph">
         <div id="map"></div>
@@ -58,12 +58,20 @@
           <div id="graph1"></div>
         </div>
       </div>
-      <div id="full_graphs">
-        <div id="airports_full" class="graph-container"></div>
-        <div id="crossings_full" class="graph-container"></div>
+      <div id="secondary">
+        <div id="full_graphs_intro">
+          <h2 id="full_graphs_h2">Complete immigration via air travel and border crossings</h2>
+        </div>
+        <div id="full_graphs">
+          <div id="airports_full" class="graph-container"></div>
+          <div id="crossings_full" class="graph-container"></div>
+        </div>
       </div>
+     
     </div>
-
+    <footer>
+      <p>Text</p>
+    </footer>
     <script
       type="module"
       src="D3_scripts/USA_interactive_map.js"
