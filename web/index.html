@@ -11,10 +11,17 @@
     <title>USA Land & Air Immigration</title>
 
     <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <h1>USA Immigration Visualization</h1>
+      <h1 id="main_h1">USA Immigration Visualization</h1>
     </header>
     <div id="main">
       <div id="map_graph">
@@ -22,7 +29,7 @@
         <div id="graph_and_info">
           <div id="info">
             <div id="pick_entryPoint">
-              <p>Click or pick a crossing/airport to display info:</p>
+              <p>Click or pick an airport/crossing to display info:</p>
               <select name="type" id="typeDropdown">
                 <option value="airport">Airport</option>
                 <option value="border">Border Crossing</option>

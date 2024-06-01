@@ -1,3 +1,9 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Teko', sans-serif;
+}
+
 #main {
   display: flex;
   flex-direction: column;
@@ -8,21 +14,26 @@ h2 {
 }
 
 #map_graph {
-  margin-bottom: 2vw;
+  padding: 2vw;
   display: flex;
   flex-direction: row;
   height: 500px; /* Full viewport height */
 }
 
+#map{
+  border: #ccc;
+}
+
 #map,
 #graph_and_info {
-  width: 720px;
+  flex: 1;
   position: relative;
 }
 
-#graph_and_info {
-  margin-left: 7vw;
+#graph_and_info{
+  margin-left:  5vw;
 }
+
 
 #map svg {
   /*tooltip*/
@@ -59,7 +70,6 @@ h2 {
 #graph_and_info {
   display: flex;
   flex-direction: column;
-  margin-top: 2vw;
 }
 
 ul {
@@ -106,4 +116,22 @@ p {
 
 #specificDropdown {
   width: 12vw;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  background-color: rgb(74, 173, 255);
+  height: 2vw;
+  margin-bottom: 2vw;
+  padding: 2vw;
+}
+
+h1{
+  margin: 0;
+  font-size: 3.5vw;
+}
+
+#main_h1{
+  color: white;
 }
