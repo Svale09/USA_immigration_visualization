@@ -14,14 +14,10 @@ h2 {
 }
 
 #map_graph {
-  padding: 2vw;
+  padding: 0vw 2vw;
   display: flex;
   flex-direction: row;
   height: 500px; /* Full viewport height */
-}
-
-#map{
-  border: #ccc;
 }
 
 #map,
@@ -101,8 +97,9 @@ p {
 
 #pick_entryPoint {
   display: flex;
-  flex-direction: row;
-  width: fit-content;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .graph-tooltip {
@@ -135,3 +132,15 @@ h1{
 #main_h1{
   color: white;
 }
+
+select{
+  margin: 0;
+  padding: 0;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.05vw;
+}
+
+select>option{
+  font-family: 'Teko', sans-serif;
+}
+
