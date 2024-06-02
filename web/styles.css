@@ -1,10 +1,12 @@
-body{
+body {
   margin: 0;
   padding: 0;
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
 }
 
 #main {
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
 }
@@ -27,15 +29,14 @@ h2 {
   position: relative;
 }
 
-#graph_and_info{
-  margin-left:  7vw;
+#graph_and_info {
+  margin-left: 7vw;
   padding: 0vw 1vw;
   border: 1px solid rgb(159, 159, 159);
   border-radius: 16px;
   box-shadow: 10px 10px 5px lightgray;
   align-items: center;
 }
-
 
 #map svg {
   /*tooltip*/
@@ -74,7 +75,7 @@ h2 {
   flex-direction: column;
 }
 
-#info{
+#info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,7 +128,7 @@ p {
   width: 10vw;
 }
 
-header{
+header {
   display: flex;
   align-items: center;
   background-color: rgb(74, 173, 255);
@@ -136,48 +137,49 @@ header{
   padding: 2vw;
 }
 
-h1{
+h1 {
   margin: 0;
   font-size: 3.5vw;
 }
 
-#main_h1{
+#main_h1 {
   color: white;
 }
 
-select{
+select {
   margin: 0vw 1vw;
   padding: 0;
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
   font-size: 1.1vw;
 }
 
-#mg_title{
+#mg_title {
   align-self: center;
 }
 
-#intro{
+#intro {
   padding: 0vw 2vw;
 }
 
-#full_graphs_intro{
+#full_graphs_intro {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#full_graphs_h2{
+#full_graphs_h2 {
   font-size: 2.5vw;
+  margin-bottom: 0.5vw;
   color: white;
 }
 
-#secondary{
+#secondary {
   display: flex;
   flex-direction: column;
   background-color: rgb(74, 173, 255);
 }
 
-#airports_full{
+#airports_full {
   margin-left: 1vw;
   margin-bottom: 2vw;
   padding: 0.5vw;
@@ -186,7 +188,7 @@ select{
   border-radius: 16px;
 }
 
-#crossings_full{
+#crossings_full {
   margin-bottom: 2vw;
   padding: 0.5vw;
   background-color: white;
@@ -194,25 +196,74 @@ select{
   border-radius: 16px;
 }
 
-.white_p{
+.white_p {
   color: white;
   font-size: 2vw;
 }
 
-#explanation_text, #explanation_title{
+#explanation_text,
+#explanation_title {
   color: white;
 }
 
-#explanation_title{
+#explanation_title {
   align-self: center;
 }
 
-#explanation_text{
+#explanation_text {
   font-size: 1.5vw;
 }
 
-#explanations{
+#explanations {
   display: flex;
   flex-direction: column;
   margin: 0vw 2vw 2vw 2vw;
 }
+
+footer {
+  background-color: rgb(74, 173, 255);
+  width: 100%;
+}
+
+#footer_text{
+  display: flex;
+  padding: 4vw;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(66, 66, 66);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.footer_p{
+  color: white;
+  font-size: 2vw;
+  margin: 0;
+}
+
+#socials{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#linkedIn{
+  height: 16px;
+  width: 16px;
+  margin-left: 0.5vw;
+}
+
+#gitHub{
+  height: 16px;
+  margin-right: 0.5vw;
+}
+
+#madeby{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
