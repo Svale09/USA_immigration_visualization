@@ -227,7 +227,7 @@ footer {
 
 #footer_text{
   display: flex;
-  padding: 4vw;
+  padding: 3vw;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
