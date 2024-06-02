@@ -1,15 +1,21 @@
 import { updateGraph, compareGraphs } from "./traffic.js";
 
 var selectedPorts = [];
+var types = [];
 
-function addToSelectedPorts(portCode) {
+function addToSelectedPorts(portCode, type) {
   // Add the portCode to the array
   selectedPorts.push(portCode);
+  types.push(type)
 
   // If there are more than two portCodes, remove the first one (FIFO principle)
   if (selectedPorts.length > 2) {
     selectedPorts.shift(); // Remove the first element from the array
+    types.shift();
   }
+  console.log("Added to list: " + portCode);
+  console.log(selectedPorts);
+  console.log(types)
 }
 
 var margin = { top: 10, right: 70, bottom: 10, left: 10 };
@@ -114,7 +120,9 @@ d3.json("us_features.json", function (error, us) {
         tooltip.transition().duration(500).style("opacity", 0);
       })
       .on("click", function (d) {
-        //TODO add the logic for comparing graphs
+        addToSelectedPorts (d["Airport Code"], "airport");
+
+          compareGraphs(selectedPorts, types);
       });
   });
 
@@ -169,7 +177,9 @@ d3.json("us_features.json", function (error, us) {
         tooltip.transition().duration(500).style("opacity", 0);
       })
       .on("click", function (d) {
-        //TODO add the loginc for comparing graphs
+        addToSelectedPorts (d.PortCode, "border");
+
+        compareGraphs(selectedPorts, types)
       });
   });
 

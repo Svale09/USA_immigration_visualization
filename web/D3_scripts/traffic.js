@@ -167,8 +167,118 @@ export function updateGraph(selectedCode, dataset, info) {
   });
 }
 
-export function compareGraphs(portCodes){
-  
+export function compareGraphs(portCodes, types) {
+  // Define the colors for the two lines
+  const colors = ["steelblue", "red"];
+
+  // Remove any existing lines
+  window.graph.svg.selectAll(".line").remove();
+
+  // Helper function to load data and return a promise
+  function loadData(portCode, type) {
+    return new Promise((resolve, reject) => {
+      var pathToData;
+      if (type === "airport") {
+        pathToData = "FINAL_flightsJSON.json";
+      } else if (type === "border") {
+        pathToData = "FINAL_border_crossing_JSON.json";
+      } else {
+        reject("Dataset not recognized for portCode:", portCode);
+      }
+
+      d3.json(pathToData, function (error, data) {
+        if (error) reject(error);
+
+        var filteredData = data.filter(function (d) {
+          return d.PortCode === portCode;
+        });
+
+        if (filteredData.length === 0) {
+          console.warn("No data found for the selected PortCode:", portCode);
+          resolve([]); // Resolve with empty array if no data is found
+        } else {
+          // Parse the date
+          var parseDate = d3.time.format("%Y-%B").parse;
+          filteredData.forEach(function (d) {
+            d.date = parseDate(d.Year + "-" + d.Month); // Ensure total_crossings is treated as a number
+          });
+          resolve(filteredData);
+        }
+      });
+    });
+  }
+
+  // Load data for both port codes
+  Promise.all(portCodes.map((portCode, index) => loadData(portCode, types[index])))
+    .then(results => {
+      const allData = results.flat();
+
+      if (allData.length === 0) {
+        console.warn("No data available for the provided port codes.");
+        return;
+      }
+
+      // Update the scales' domains based on the combined data
+      var x = window.graph.x;
+      var y = window.graph.y;
+      x.domain(
+        d3.extent(allData, function (d) {
+          return d.date;
+        })
+      );
+      y.domain([
+        0,
+        d3.max(allData, function (d) {
+          return d.total_crossings;
+        }),
+      ]);
+
+      // Define line function
+      var line = d3.svg
+        .line()
+        .x(function (d) {
+          return x(d.date);
+        })
+        .y(function (d) {
+          return y(d.total_crossings);
+        });
+
+      // Draw lines for each dataset
+      results.forEach((filteredData, index) => {
+        if (filteredData.length === 0) return;
+
+        var path = window.graph.svg.append("path")
+          .datum(filteredData)
+          .attr("class", "line")
+          .attr("d", line) // Set the path initially to be the full line
+          .style("fill", "none")
+          .style("stroke", colors[index])
+          .style("stroke-width", "2px")
+          .attr("stroke-dasharray", function () { return this.getTotalLength(); })
+          .attr("stroke-dashoffset", function () { return this.getTotalLength(); })
+          .transition() // Initiate a transition
+          .duration(2000) // Duration of the transition
+          .ease("linear") // Linear easing for smooth transition
+          .attr("stroke-dashoffset", 0); // Animate the line drawing from start to finish
+      });
+
+      // Update the axes
+      window.graph.svg.select(".x.axis").call(window.graph.xAxis);
+      window.graph.svg.select(".y.axis").call(window.graph.yAxis);
+
+      // Rotate x-axis tick values and style
+      window.graph.svg
+        .select(".x.axis")
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
+    })
+    .catch(error => {
+      console.error("Error loading data:", error);
+    });
 }
+
 
 initializeGraph();
