@@ -3,6 +3,16 @@ var margin = { top: 50, right: 20, bottom: 10, left: 60 }; // Increased top marg
 var width = 700 - margin.left - margin.right;
 var height = 400 - margin.top - margin.bottom;
 
+var explanations = [];
+fetch("explanations.json")
+  .then((response) => response.json())
+  .then((data) => {
+    explanations = data;
+  })
+  .catch((error) => {
+    console.error("Error loading explanations:", error);
+  });
+
 // Load the data
 d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
   if (error) throw error;
@@ -152,6 +162,48 @@ d3.json("FINAL_border_crossing_JSON.json", function (error, data) {
           +(nearestDataPoint.values / 1000000).toFixed(2) +
           " mil"
       );
+
+    var year = nearestDataPoint.key;
+    // Update explanation based on the year
+    let explanation;
+    if (year <= 2000) {
+      explanation = explanations.find(
+        (item) => item.type === "border" && item.period === "1990boom"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year > 2000 && year <= 2011) {
+      explanation = explanations.find(
+        (item) => item.type === "border" && item.period === "2000s"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year > 2011 && year < 2019) {
+      explanation = explanations.find(
+        (item) => item.type === "border" && item.period === "2010s"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year >= 2019 && year <= 2020) {
+      explanation = explanations.find(
+        (item) => item.type === "border" && item.period === "covid"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year > 2020 && year < 2023) {
+      explanation = explanations.find(
+        (item) => item.type === "border" && item.period === "recovery"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    }  else {
+      explanation = explanations.find(
+        (item) =>
+          item.type === "border" && item.period === "2020s"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    }
   });
 
   // Add a mouseout event listener to hide the tooltip when the mouse leaves the graph
