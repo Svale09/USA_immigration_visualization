@@ -5,43 +5,28 @@ export function initializeGraph() {
   var height = 300 - margin.top - margin.bottom;
 
   // Define scales for x and y axes with initial domains
-  var x = d3.time
-    .scale()
-    .range([0, width])
-    .domain([new Date(1990, 0, 1), new Date(2024, 11, 31)]);
+  var x = d3.time.scale().range([0, width]).domain([new Date(1990, 0, 1), new Date(2024, 11, 31)]);
   var y = d3.scale.linear().range([height, 0]).domain([0, 1000]);
 
   // Limit number of ticks on the y-axis to 5
-  var yAxis = d3.svg
-    .axis()
-    .scale(y)
-    .orient("left")
-    .ticks(5)
-    .tickFormat(function (d) {
-      return d / 1000;
-    });
+  var yAxis = d3.svg.axis().scale(y).orient("left").ticks(5).tickFormat(function (d) {
+    return d / 1000;
+  });
 
-  var xAxis = d3.svg
-    .axis()
-    .scale(x)
-    .orient("bottom")
-    .tickFormat(d3.time.format("%Y"));
+  var xAxis = d3.svg.axis().scale(x).orient("bottom").tickFormat(d3.time.format("%Y"));
 
   // Clear any existing SVG elements in the graph1 div
   d3.select("#graph1").selectAll("*").remove();
 
   // Create SVG element in the graph1 div
-  var svg = d3
-    .select("#graph1")
-    .append("svg")
+  var svg = d3.select("#graph1").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom * 3)
     .append("g")
     .attr("transform", "translate(" + margin.left + ")");
 
   // Add x-axis
-  svg
-    .append("g")
+  svg.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis)
@@ -52,8 +37,7 @@ export function initializeGraph() {
     .attr("transform", "rotate(-65)");
 
   // Add y-axis
-  svg
-    .append("g")
+  svg.append("g")
     .attr("class", "y axis")
     .attr("transform", "translate(0," + 6 + ")")
     .call(yAxis)
@@ -91,7 +75,6 @@ export function updateGraph(selectedCode, dataset, info) {
   info_code.textContent = selectedCode;
   info_coordinates.textContent = info.coordinates;
   info_type.textContent = info.type;
-
 
   var pathToData;
 
@@ -150,20 +133,24 @@ export function updateGraph(selectedCode, dataset, info) {
         return y(d.total_crossings);
       });
 
-    // Select the SVG and update the line
+    // Select the SVG and remove any existing line
     var svg = window.graph.svg;
-    var path = svg.selectAll(".line").data([filteredData]);
+    svg.selectAll(".line").remove();
 
-    path.enter().append("path").attr("class", "line");
-    path
-      .attr("d", line)
+    // Append the new line with transition
+    var path = svg.append("path")
+      .datum(filteredData)
+      .attr("class", "line")
+      .attr("d", line) // Set the path initially to be the full line
       .style("fill", "none")
       .style("stroke", "steelblue")
-      .style("stroke-width", "2px");
-
-    path.exit().remove();
-
-    //console.log("Line Path:", line(filteredData));
+      .style("stroke-width", "2px")
+      .attr("stroke-dasharray", function() { return this.getTotalLength(); })
+      .attr("stroke-dashoffset", function() { return this.getTotalLength(); })
+      .transition() // Initiate a transition
+      .duration(2000) // Duration of the transition
+      .ease("linear") // Linear easing for smooth transition
+      .attr("stroke-dashoffset", 0); // Animate the line drawing from start to finish
 
     // Update the axes
     svg.select(".x.axis").call(window.graph.xAxis);
