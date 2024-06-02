@@ -1,0 +1,80 @@
+[
+  {
+    "type": "airport",
+    "period": "1990s",
+    "title": "The Growth of Air Travel with Technological Advancements",
+    "text": "In the early 1990s, air travel began to surge, driven by technological advancements in aircraft design, navigation systems, and airport infrastructure. The introduction of more efficient and larger capacity aircraft allowed airlines to offer more flights and carry more passengers. Innovations such as online booking systems and improved customer service technology also made air travel more accessible and convenient, leading to an increase in the number of people choosing to fly to the USA for business, tourism, and personal reasons."
+  },
+  {
+    "type": "airport",
+    "period": "9/11",
+    "title": "The Impact of 9/11 on Air Travel",
+    "text": "The terrorist attacks on September 11, 2001, marked a significant turning point for air travel worldwide, with a profound impact on the USA. In the immediate aftermath, there was a sharp decline in air travel as passengers feared for their safety and new stringent security measures were implemented. The industry faced a massive challenge as airlines had to adapt to new security protocols and regain public confidence. Although the recovery was slow, air travel eventually rebounded as enhanced security measures became the new norm and travelers began to feel safe again."
+  },
+  {
+    "type": "airport",
+    "period": "2000s_rise",
+    "title": "Recovery and Growth Post-9/11",
+    "text": "Following the initial decline after the 9/11 attacks, the air travel industry began to recover and grow steadily. The implementation of enhanced security measures restored passenger confidence, and the introduction of new technologies and services further encouraged people to travel. Economic growth in the mid-2000s also played a significant role in boosting air travel, with more people traveling for both business and leisure."
+  },
+  {
+    "type": "airport",
+    "period": "2008",
+    "title": "Economic Crisis of 2008",
+    "text": "The global economic crisis of 2008 led to another dip in air travel as financial instability resulted in reduced disposable income for many potential travelers. Airlines faced decreased demand, leading to reduced flight frequencies and routes. Business travel also saw a decline as companies cut down on travel expenses. However, the industry demonstrated resilience, gradually recovering as the global economy stabilized and consumer confidence returned."
+  },
+  {
+    "type": "airport",
+    "period": "2010s",
+    "title": "Rise in Air Travel Traffic",
+    "text": "From the mid-2010s onwards, air travel to the USA experienced a period of robust growth. The economic recovery, combined with ongoing technological advancements and competitive pricing strategies by airlines, contributed to a steady increase in passenger numbers. The proliferation of low-cost carriers, expanded route networks, and the growth of emerging markets also played a significant role in boosting air travel. By the late 2010s, air travel traffic to the USA was at an all-time high, reflecting a thriving global travel industry."
+  },
+  {
+    "type": "airport",
+    "period": "covid",
+    "title": "The COVID-19 Pandemic",
+    "text": "The COVID-19 pandemic in 2020 brought an unprecedented halt to global air travel. Travel restrictions, lockdowns, and health concerns led to a dramatic decline in passenger numbers. Airlines faced severe financial strain, and many had to implement drastic measures to stay afloat. The industry saw a slow and cautious recovery as vaccines were rolled out and travel restrictions were gradually lifted. However, the pandemic has left a lasting impact, prompting a reevaluation of health and safety protocols and a shift towards more sustainable and resilient travel practices."
+  },
+  {
+    "type": "airport",
+    "period": "post_pandemic_rise",
+    "title": "Post-Pandemic Recovery",
+    "text": "As the world began to recover from the COVID-19 pandemic, air travel saw a resurgence. With the widespread distribution of vaccines and the easing of travel restrictions, passenger confidence gradually returned. Airlines adapted to new health and safety protocols, providing reassurance to travelers. Additionally, pent-up demand for travel, coupled with the desire to reconnect with loved ones and resume leisure activities, fueled the recovery of air travel. While challenges persisted, the industry demonstrated resilience and adaptability in navigating the post-pandemic landscape."
+  },
+  {
+    "type": "border",
+    "period": "1990bomm",
+    "title": "Boom Years: 1996 to 2000",
+    "text": "Between 1996 and 2000, immigration into the United States via border crossings with Canada and Mexico experienced a significant rise. This period was marked by strong economic growth in the United States, which attracted many seeking better job opportunities and living conditions. The economic prosperity of the late 1990s, coupled with relatively stable political conditions in neighboring countries, facilitated a surge in cross-border migration. The ease of movement across these borders allowed for increased travel for work, family reunification, and other personal reasons."
+  },
+  {
+    "type": "border",
+    "period": "2000s",
+    "title": "Decline Post-Millennium: 2000 to 2011",
+    "text": "The turn of the millennium marked the beginning of a continuous decline in immigration through these border crossings, a trend that lasted until 2011. Several factors contributed to this drop. The aftermath of the September 11, 2001 terrorist attacks led to heightened security measures and stricter immigration policies, making border crossings more challenging and time-consuming. Additionally, the economic downturn in the early 2000s, followed by the global financial crisis of 2008, reduced job availability and economic incentives for migrants. These factors combined to significantly reduce the flow of immigrants across the Canadian and Mexican borders during this period."
+  },
+  {
+    "type": "border",
+    "period": "2010s",
+    "title": "Stable Period: 2011 to 2019",
+    "text": "From the early 2010s to the late 2010s, immigration via border crossings with Canada and Mexico entered a period of stagnation. During these years, the number of crossings remained relatively stable, neither increasing nor decreasing significantly. This stagnation was partly due to a more stable economic environment in the United States post-recovery from the 2008 crisis, which provided a consistent, though not booming, demand for labor. Policy changes and enforcement also stabilized, creating a more predictable environment for those considering crossing the borders."
+  },
+  {
+    "type": "border",
+    "period": "covid",
+    "title": "Pandemic Impact: 2019 to 2020",
+    "text": "The period from 2019 to 2020 saw another significant drop in border crossings, primarily due to the COVID-19 pandemic. The introduction of travel restrictions, lockdowns, and stringent health protocols drastically reduced the movement of people across international borders. Both Canada and Mexico, along with the United States, implemented measures to curb the spread of the virus, which included limiting non-essential travel and temporarily closing borders. This resulted in a steep decline in immigration through these land crossings."
+  },
+  {
+    "type": "border",
+    "period": "recovery",
+    "title": "Recovery Phase: 2020 to 2023",
+    "text": "As the world began to recover from the pandemic, border crossings started to increase once again. By 2023, the roll-out of vaccines and the gradual lifting of travel restrictions led to a resurgence in cross-border movement. Economic recovery efforts and the reopening of businesses also contributed to the uptick in immigration, as people resumed travel for work, family visits, and other purposes. The period saw a return to pre-pandemic levels of movement, reflecting a broader global recovery."
+  },
+  {
+    "type": "border",
+    "period": "2020s",
+    "title": "Recent Decline",
+    "text": "Despite the recovery, recent years have witnessed another drop in immigration through these border crossings. This decline can be attributed to a combination of factors, including ongoing political debates over immigration policy, fluctuating economic conditions, and new challenges such as inflation and global supply chain issues. Additionally, some residual effects of the pandemic, such as changes in labor market demands and persistent health concerns, continue to influence migration patterns."
+  }
+]

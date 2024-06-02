@@ -194,3 +194,25 @@ select{
   border-radius: 16px;
 }
 
+.white_p{
+  color: white;
+  font-size: 2vw;
+}
+
+#explanation_text, #explanation_title{
+  color: white;
+}
+
+#explanation_title{
+  align-self: center;
+}
+
+#explanation_text{
+  font-size: 1.5vw;
+}
+
+#explanations{
+  display: flex;
+  flex-direction: column;
+  margin: 0vw 2vw 2vw 2vw;
+}

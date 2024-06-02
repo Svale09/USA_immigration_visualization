@@ -3,6 +3,20 @@ var margin = { top: 20, right: 20, bottom: 10, left: 60 };
 var width = 700 - margin.left - margin.right;
 var height = 400 - margin.top - margin.bottom;
 
+var explanationText = document.getElementById("explanation_text");
+var explanationTitle = document.getElementById("explanation_title");
+
+// Load the explanations data
+var explanations = [];
+fetch("explanations.json")
+  .then((response) => response.json())
+  .then((data) => {
+    explanations = data;
+  })
+  .catch((error) => {
+    console.error("Error loading explanations:", error);
+  });
+
 // Load the data
 d3.json("FINAL_flightsJSON.json", function (error, data) {
   if (error) throw error;
@@ -148,9 +162,58 @@ d3.json("FINAL_flightsJSON.json", function (error, data) {
         "Year: " +
           nearestDataPoint.key +
           "<br/>Total Passengers: " +
-          +(nearestDataPoint.values / 1000000).toFixed(2) +
+          (nearestDataPoint.values / 1000000).toFixed(2) +
           " mil"
       );
+
+    var year = nearestDataPoint.key;
+
+    // Update explanation based on the year
+    let explanation;
+    if (year <= 1999) {
+      explanation = explanations.find(
+        (item) => item.type === "airport" && item.period === "1990s"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year > 1999 && year <= 2004) {
+      explanation = explanations.find(
+        (item) => item.type === "airport" && item.period === "9/11"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year > 2004 && year < 2008) {
+      explanation = explanations.find(
+        (item) => item.type === "airport" && item.period === "2000s_rise"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year >= 2008 && year <= 2009) {
+      explanation = explanations.find(
+        (item) => item.type === "airport" && item.period === "2008"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year > 2009 && year < 2019) {
+      explanation = explanations.find(
+        (item) => item.type === "airport" && item.period === "2010s"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    } else if (year >= 2019 && year < 2021) {
+      explanation = explanations.find(
+        (item) => item.type === "airport" && item.period === "covid"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    }
+    else {
+      explanation = explanations.find(
+        (item) => item.type === "airport" && item.period === "post_pandemic_rise"
+      );
+      explanationTitle.textContent = explanation.title;
+      explanationText.textContent = explanation.text;
+    }
   });
 
   // Add a mouseout event listener to hide the tooltip when the mouse leaves the graph
