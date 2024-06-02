@@ -1,4 +1,16 @@
-import { updateGraph } from "./traffic.js";
+import { updateGraph, compareGraphs } from "./traffic.js";
+
+var selectedPorts = [];
+
+function addToSelectedPorts(portCode) {
+  // Add the portCode to the array
+  selectedPorts.push(portCode);
+
+  // If there are more than two portCodes, remove the first one (FIFO principle)
+  if (selectedPorts.length > 2) {
+    selectedPorts.shift(); // Remove the first element from the array
+  }
+}
 
 var margin = { top: 10, right: 70, bottom: 10, left: 10 };
 var width = 820 - margin.left - margin.right;
@@ -78,12 +90,6 @@ d3.json("us_features.json", function (error, us) {
         tooltip.html(
           "Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]
         );
-      })
-      .on("mouseout", function () {
-        d3.select(this).attr("r", circleRadius_regular).style("opacity", 0.5);
-        tooltip.transition().duration(500).style("opacity", 0);
-      })
-      .on("click", function (d) {
         console.log("Airport coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Airport Code:", d["Airport Code"]);
         var airportCode = d["Airport Code"];
@@ -92,7 +98,7 @@ d3.json("us_features.json", function (error, us) {
           name: d["Airport Name"],
           code: airportCode,
           coords: [+d.Latitude, +d.Longitude],
-          type: "Airport"
+          type: "Airport",
         };
         updateGraph(airportCode, "airport", info);
 
@@ -101,7 +107,14 @@ d3.json("us_features.json", function (error, us) {
         info_code.textContent = airportCode;
         info_coords.textContent =
           "Lat: " + d.Latitude.toFixed(2) + ", Long: " + d.Longitude.toFixed(2);
-        info_type.textContent = " Airport"
+        info_type.textContent = " Airport";
+      })
+      .on("mouseout", function () {
+        d3.select(this).attr("r", circleRadius_regular).style("opacity", 0.5);
+        tooltip.transition().duration(500).style("opacity", 0);
+      })
+      .on("click", function (d) {
+        //TODO add the logic for comparing graphs
       });
   });
 
@@ -133,12 +146,6 @@ d3.json("us_features.json", function (error, us) {
         tooltip.html(
           "Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode
         );
-      })
-      .on("mouseout", function () {
-        d3.select(this).attr("r", circleRadius_regular).style("opacity", 0.5);
-        tooltip.transition().duration(500).style("opacity", 0);
-      })
-      .on("click", function (d) {
         console.log("Crossing coordinates: ", [+d.Latitude, +d.Longitude]);
         console.log("Port code:", d.PortCode);
         var info = {
@@ -146,7 +153,7 @@ d3.json("us_features.json", function (error, us) {
           name: d.State,
           code: d.PortCode,
           coords: [+d.Latitude, +d.Longitude],
-          type: "Borders"
+          type: "Borders",
         };
         updateGraph(d.PortCode, "border", info);
 
@@ -155,7 +162,14 @@ d3.json("us_features.json", function (error, us) {
         info_code.textContent = d.PortCode;
         info_coords.textContent =
           "Lat: " + d.Latitude + ", Long: " + d.Longitude;
-        info_type.textContent = "Border"
+        info_type.textContent = "Border";
+      })
+      .on("mouseout", function () {
+        d3.select(this).attr("r", circleRadius_regular).style("opacity", 0.5);
+        tooltip.transition().duration(500).style("opacity", 0);
+      })
+      .on("click", function (d) {
+        //TODO add the loginc for comparing graphs
       });
   });
 
@@ -252,6 +266,24 @@ d3.json("us_features.json", function (error, us) {
         tooltip.html(
           "Airport: " + d["Airport Name"] + "<br/>City: " + d["City Name"]
         );
+        console.log("Airport coordinates: ", [+d.Latitude, +d.Longitude]);
+        console.log("Airport Code:", d["Airport Code"]);
+        var airportCode = d["Airport Code"];
+        var info = {
+          city: d["City Name"],
+          name: d["Airport Name"],
+          code: airportCode,
+          coords: [+d.Latitude, +d.Longitude],
+          type: "Airport",
+        };
+        updateGraph(airportCode, "airport", info);
+
+        info_city.textContent = d["City Name"];
+        info_name.textContent = d["Airport Name"];
+        info_code.textContent = airportCode;
+        info_coords.textContent =
+          "Lat: " + d.Latitude.toFixed(2) + ", Long: " + d.Longitude.toFixed(2);
+        info_type.textContent = " Airport";
       })
       .on("mouseout", function () {
         d3.select(this)
@@ -279,6 +311,23 @@ d3.json("us_features.json", function (error, us) {
         tooltip.html(
           "Border Crossing: " + d.PortName + "<br/>Code: " + d.PortCode
         );
+        console.log("Crossing coordinates: ", [+d.Latitude, +d.Longitude]);
+        console.log("Port code:", d.PortCode);
+        var info = {
+          city: d.PortName,
+          name: d.State,
+          code: d.PortCode,
+          coords: [+d.Latitude, +d.Longitude],
+          type: "Borders",
+        };
+        updateGraph(d.PortCode, "border", info);
+
+        info_city.textContent = d.PortName;
+        info_name.textContent = d.State;
+        info_code.textContent = d.PortCode;
+        info_coords.textContent =
+          "Lat: " + d.Latitude + ", Long: " + d.Longitude;
+        info_type.textContent = "Border";
       })
       .on("mouseout", function (event, d) {
         d3.select(this)

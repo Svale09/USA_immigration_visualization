@@ -167,4 +167,8 @@ export function updateGraph(selectedCode, dataset, info) {
   });
 }
 
+export function compareGraphs(portCodes){
+  
+}
+
 initializeGraph();
